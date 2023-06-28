@@ -1,0 +1,7 @@
+# As we're using different dependencies on different system architectures,
+# we ignore the poetry.lock file and instead provide exact version information
+# in the poetry project.
+model.h5
+classifier
+classifier.*
+/output

@@ -1,0 +1,11 @@
+# Ignore the poetry configuration as it results in new virtualenvironment at .venv/
+poetry.toml
+.venv
+
+.*/
+
+model.h5
+/output
+
+*.Dockerfile
+Dockerfile

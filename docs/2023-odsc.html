@@ -1,0 +1,135 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes">
+
+	<title>MLOps: Monitoring and Managing Drift</title>
+
+	<link rel="stylesheet" href="revealjs/reveal.js/dist/reset.css" />
+    <link rel="stylesheet" href="revealjs/reveal.js/dist/reveal.css" />
+    <link rel="stylesheet" href="revealjs/reveal.js/dist/theme/white.css" />
+
+    <!-- Theme used for syntax highlighted code -->
+	<!-- <link rel="stylesheet" href="revealjs/reveal.js/plugin/highlight/monokai.css"> -->
+	<!-- <link rel="stylesheet" href="revealjs/reveal.js/plugin/highlight/zenburn.css"> -->
+    <link rel="stylesheet" href="revealjs/highlight-js-github-theme.css" />
+    <link rel="stylesheet" href="revealjs/styles.css" />
+
+</head>
+
+<body style="background-color: whitesmoke;">
+	<div class="reveal">
+		<div class="slides">
+<!-- 
+
+https://odsc.com/california/speakers/
+
+I'm excited to confirm your proposal “MLOps: Monitoring and Managing Drift” has been accepted for ODSC West 2023 as an
+in-person Half-Day Training.
+
+Half day workshop, could be 75 minutes, then only part I
+
+
+MLOps: Monitoring and Managing Drift
+
+As soon as your machine learning model goes into production everything changes. 
+You now will need to constantly monitor the performance of your model, evaluate whether it is still sufficient and react accordingly.
+This, however, can be a challenge when you have no reliable ground truth to recalibrate its performance. 
+Typically, you will need to fall back to a surrogate metric that you can measure and that is correlated with the performance of your model.
+What those metrics can be and how you track and monitor them is the topic of this workshop.
+
+This workshop consists of two parts:
+- Part I: Simulate production on an existing machine learning model and detecting drift
+  - an OpenAPI machine learning service will be provided
+  - we will use Evidently, Prometheus and Grafana to monitor and detect the drift
+- Part II: Interpreting and Analyzing Drift and what to do about it
+  - when you have detected drift, you will need to interpret what happened and decide what to do about it
+  - among the steps you can take is to retrain your model with new data
+  - we might also have to consider to rethink the model architecture or the data we are using
+
+Our objective is to ensure that you are equipped with the essential knowledge and practical tools to proficiently manage
+your machine learning models in a real-world production environment.
+
+All services will be provided as Docker images and can be run locally on your machine. 
+To have the full experience, you should have Docker and Docker Compose installed. 
+Notebooks will additionally be provided as a Colab service so you can also run them without a local installation as a fallback. 
+
+
+Language: Python
+DS Tools: TensorFlow, Evidently, OpenAPI, Docker
+Attendees should know how to work with Docker Compose 
+All Levels: Drift is a broad topic that can be addressed on many levels
+MLOps and Data Engineering
+
+
+-->
+
+
+		<section data-markdown class="todo">
+			<textarea data-template>
+### Aufbau				
+
+Teil 1: so wie OOP, Fallbeispiel etc. Man hat Drift festgestellt
+Teil 2: Interpretation, Analyse, Abhilfe
+
+</textarea>
+		</section>
+		<section data-markdown class="todo">
+			<textarea data-template>
+## Drift Repo
+### Part I:        
+- Docker compose für alles bauen
+- Drift Repo bauen Docker files Top Level bereithalten
+
+### Part II:        
+- analytics notebook hierher bringen
+- Schritte fürs Neutrainieren       
+
+
+</textarea>
+		</section>
+
+
+		    <section data-markdown class="todo">
+      <textarea data-template>
+### ODSC, nach OOP Talk
+
+- Nach dem Talk mit Generischen Namen ausprobieren
+- oder vorher auf dem Gaming Laptop: 
+- Liegt es am Webhook in Gitea, Antwort von Tobi:
+Der commit trigger ist so implementiert, dass er auf commits in den main branch auf dem gitea repository reagiert.
+Wenn du sagst anderes setup, achte auch drauf, dass in Gitea dann der Webhook sauber angelegt worden ist im Gitea
+Repository. (Das kann man mit dem Admin User in den Settings des repos nachschauen)
+
+Ansonsten mal im Tekton Dashboard prüfen ob die resourcen alle auch tatsächlich angelegt worden sind.(commit-trigger
+usw)
+
+Drift-Repo: 
+- docker compose
+- Hier gibt es schon ein Docker Compose, vielleicht kann ich mich da bedienen oder zumindest inspirieren lassen
+  - https://www.evidentlyai.com/blog/batch-ml-monitoring-architecture
+  - https://github.com/evidentlyai/evidently/tree/main/examples/integrations/postgres_grafana_batch_monitoring
+  - https://github.com/evidentlyai/evidently/tree/main/examples/integrations/grafana_monitoring_service
+  - https://github.com/evidentlyai/evidently/tree/main/examples/integrations/fastapi_monitoring
+- Mit Installationsanweisung und Check, ob es geht.  
+- Nur Linux, Mac, oder Windows WSL2
+- Falls Problem, Issue anlegen
+
+      </textarea>
+    </section>
+      
+
+
+		</div>
+	</div>
+	<script src="revealjs/reveal.js/dist/reveal.js"></script>
+	<script src="revealjs/reveal.js/plugin/notes/notes.js"></script>
+	<script src="revealjs/reveal.js/plugin/markdown/markdown.js"></script>
+	<script src="revealjs/reveal.js/plugin/highlight/highlight.js"></script>
+	<script src="revealjs/config.js"></script>
+
+</body>
+
+</html>
