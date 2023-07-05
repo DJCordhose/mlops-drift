@@ -1,0 +1,88 @@
+.right-img {
+  margin-left: 10px !important;
+  float: right;
+  height: 500px;
+}
+
+.todo:before {
+  content: 'TODO: ';
+}
+
+.todo {
+  color: red !important;
+}
+
+code span.line-number {
+  color: lightcoral;
+}
+
+.reveal pre code {
+  max-height: 1000px !important;
+}
+
+img {
+  border: 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  height: 450px;
+}
+
+.reveal {
+  -ms-touch-action: auto !important;
+  touch-action: auto !important;
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4 {
+  /* letter-spacing: 2px; */
+  font-family: 'Calibri', sans-serif;
+  /* font-family: 'Times New Roman', Times, serif; */
+  /* font-weight: bold; */
+  color: black;
+  /* font-style: italic; */
+  /* letter-spacing: -2px; */
+  text-transform: none !important;
+}
+
+.reveal em {
+  font-weight: bold;
+}
+
+.reveal section img {
+  background: none;
+}
+
+.reveal img.with-border {
+  border: 1px solid #586e75 !important;
+  box-shadow: 3px 3px 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+.reveal li {
+  margin-bottom: 8px;
+}
+
+/* For li's that use FontAwesome icons as bullet-point */
+.reveal ul.fa-ul li {
+  list-style-type: none;
+}
+
+.reveal {
+  /* font-family: 'Work Sans', 'Calibri'; */
+  font-family: 'Calibri';
+  color: black !important;
+  font-size: xx-large;
+}
+
+.container {
+  display: flex;
+}
+
+.col,
+col-1 {
+  flex: 1;
+}
+
+.col-2 {
+  flex: 2;
+}
