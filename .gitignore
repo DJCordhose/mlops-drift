@@ -5,3 +5,4 @@ model.h5
 classifier
 classifier.*
 /output
+*:Zone.Identifier

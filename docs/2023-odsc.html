@@ -122,6 +122,11 @@ Drift-Repo:
       </textarea>
     </section>
       
+	<section data-markdown class="todo">
+		<textarea data-template>
+### Google Rubic Score			
+		</textarea>
+    </section>
 
 	<section data-markdown class="todo">
 		<textarea data-template>
@@ -143,6 +148,204 @@ Lieber gemanagtes Environment nutzen
 </textarea>
 </section>
 
+
+
+
+
+
+
+<section data-markdown class="preparation" style="font-size: large;">
+	<textarea data-template>
+  
+## Mitnehmen
+* 30 Spicker ausdrucken
+  
+  ## 
+## Vorbereitung
+* Allen Docker Kram einmal wegschmeißen und neu bauen wie in Readme
+* gucken, dass alles läuft
+* Notebook aufmachen: https://colab.research.google.com/github/djcordhose/mlops/blob/main/insurance-prediction/notebooks/train.ipynb
+    
+	</textarea>
+  </section>
+  
+
+<section data-markdown>
+    <textarea data-template>
+# MLOps: Monitoring and Managing Drift
+
+ODSC West 2023, https://odsc.com/california/speakers/xxx
+
+Oliver Zeigermann
+
+<img src="img/bit.ly_odsc-west-mlops.png" style="height: 200px;">
+
+Slides: https://bit.ly/odsc-west-mlops
+
+<!-- https://djcordhose.github.io/mlops-drift/2023-odsc.html -->
+</textarea>
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+### Challenges in Machine Learning Projects
+
+<img src="img/biggest_challenges_ML_MLCon_2023.jpg" style="height: 530px;" class="fragment">
+
+<small>Survey MLConf Berlin 2023</small>
+	</textarea>
+</section>
+
+
+<section data-markdown class="fragments">
+### MLOps
+
+* MLOps ist abgeleitet von DevOps
+* Durch MLOps kommt ML in Produktion und wird in Betrieb gehalten
+* Dazu kommen eine Reihe von Werkzeugen und Praktiken zum Einsatz
+* Überschneidung aus
+  * Softwareentwicklung
+  * Operations
+  * Data Science
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+  ### Machine Learning Projecs can be thought as running in phases
+  
+  <img src='img/phases.jpg' style="height: 100%;">
+  
+  </textarea>
+</section>
+
+<section data-markdown>
+### MLOps 1.0 vs MLOps 2.0
+
+- MLOps 1.0 - research / experiment centric
+- MLOps 2.0 - production first
+</section>
+
+<section data-markdown>
+### MLOps 1.0 - research / experiment centric
+  - Managing experiments  and Version control
+    - Model Architecture
+    - Training Code
+    - Data
+    - Artefacts
+      - Trained Model 
+      - Plots (learning curve, confusion matrix)
+  - Tools
+    - Mlflow
+    - Speadsheets
+    - Weights & Biases
+    - Comet
+</section>
+
+<section data-markdown>
+### MLOps 2.0 - production first
+
+  - productionize, deploy, maintain
+  - Deployment Pipeline
+     - Model Repo
+       - Rather Image, as Model does not stand for itself most of the time, rather is a system
+       - Data Source and Preproc same code dev and prod (if possible)
+  - Real world environment
+  - Monitoring
+    - Gap between training and prod data?
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+### Fun for the first five minutes
+## Create your own MLOps Zine
+
+<div class="container">
+  <div class="col">
+  <img src="img/zine/teaser.jpg" style="height: 100%;">
+  <em>Fold</em>
+  </div>
+  <div class="col">
+  <img src="img/zine/fold.jpg" style="height: 100%;">
+  <em>Topology change</em>
+  
+  </div>
+</div>
+<br>  
+<br>  
+
+<small>We are not aiming for highest production quality, but make something physical that you can take home</small>
+</textarea>
+</section>
+
+<section data-markdown>
+### Phase 0: Enable Organization
+
+_Make sure people on all levels and all roles understand the specific needs and specialties of a machine learning project_
+
+* prepare for 80% garbage factor
+* clash of roles
+* largest part of job begins *after* production
+* this might be the hardest and least part of the overall job
+
+Links
+* https://fearlesschangepatterns.com/
+* https://www.rejectiontherapy.com/
+</section>
+
+
+
+<!-- <section data-markdown>
+	<textarea data-template>
+### MLOps - komplettes Zine
+
+<img src="img/zine/mlops.png" style="height: 530px;" class="fragment">
+
+<small>Bildunterschrit</small>
+	</textarea>
+</section>
+ -->
+
+ <section data-markdown>
+	<textarea data-template>
+### Use Case: Predict Risk 
+
+<img src="img/zine/use-case.png" style="height: 530px;" class="fragment">
+
+<small>Objective: Risk of potential customer as LOW, MEDIUM, HIGH</small>
+	</textarea>
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+### Die Qualität von ML Systemen nimmt meist mit der Zeit ab
+
+<img src="img/zine/degrade.png" style="height: 530px;" class="fragment">
+
+<small>Das gilt nicht nur für ML Anwendungen, aber bei diesen ist es offensichtlicher</small>
+	</textarea>
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+### Aktualisierte Modelle sind immer wieder notwendig
+
+<img src="img/zine/intervention.png" style="height: 530px;" class="fragment">
+
+<small>Machine Learning Anwendungen brauchen Wartung</small>
+	</textarea>
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+  ### Ohne Ground Truth braucht man eine Ersatzmetrik
+  
+  <img src="img/zine/drift.png" style="height: 450px;" class="fragment">
+  
+  
+  *Wenn sich die Verteilung der Daten der Anfragen oder Vorhersagen deutlich von denen des Trainings unterscheiden* 
+  </textarea>
+  </section>
+  
 
 		</div>
 	</div>
