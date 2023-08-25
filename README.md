@@ -18,8 +18,13 @@ This workshop consists of two parts:
 Our objective is to ensure that you are equipped with the essential knowledge and practical tools to proficiently manage
 your machine learning models in a real-world production environment.
 
+## Start using Gitpod
 
-## Installation
+Click the button below to start a new development environment:
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DJCordhose/mlops-drift)
+
+## Local Installation
 
 Please have the installation ready and checked before the workshop. Should you run into problems, 
 please create an issue in this repository.
