@@ -43,6 +43,8 @@ Click the button below to start a new development environment:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DJCordhose/mlops-drift)
 
+The standard setup might struggle a bit, but should still be able to run our setup. You might have to wait for a bit until docker has started all containers. Once ports are displayed in the lower right corner, the application has started. Click on the ports to open the overview view. Opening the application runnung on port 8080 should show the swagger interface on top of its API.
+
 ### Part II: Run Notebooks using Colab
 * Starting point for part I: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
 * Analysis for part II: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
@@ -69,8 +71,9 @@ Check the following services:
   * Metrics: http://localhost:8080/metrics/
 * Prometheus scrape target `insurance_prediction_service` should be in `UP` state: http://localhost:9090/targets
 * Grafana Dashboard should show mostly empty, but without warnings: http://localhost:3000/d/U54hsxv7k/evidently-data-drift-dashboard?orgId=1&refresh=5s
+  * login: admin/admin, you can skip the dialogue asking you to change the password
 
-### Part II: cloud installation using Colab or local installation, both work fine
+### Part II: local notebook installation
 
 1. create an environment for the project using your favorite environment manager
    * if you don't have one anaconda might be a good choice: `conda create --name mlops-drift --clone base` and `conda activate mlops-drift`
