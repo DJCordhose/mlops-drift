@@ -6,3 +6,4 @@ classifier
 classifier.*
 /output
 *:Zone.Identifier
+.ipynb_checkpoints

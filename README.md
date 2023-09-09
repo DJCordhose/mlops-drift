@@ -18,27 +18,46 @@ This workshop consists of two parts:
 Our objective is to ensure that you are equipped with the essential knowledge and practical tools to proficiently manage
 your machine learning models in a real-world production environment.
 
-## Start using Gitpod
+# Installation
+
+You can choose between to ways of installation. You can either install
+* locally: requires Docker and Poetry (or at least pip)
+* using the cloud: requires accounts for Google Colab and Gitpod
+
+_Please have the installation ready and checked before the workshop. Should you run into problems, please create an issue in this repository._ 
+
+_Should you really have issues, don't panic: we only need one working installation per team, so you can share and installation and work together with a colleague._
+
+## Instalation in the Cloud
+
+Recommended for most users. 
+
+### Prerequisites
+- Recent version of a modern browser (like Chrome)
+- Google Account (for Colab)
+- Gitpod Account
+
+### Part I: Start monitoring servers using Gitpod
 
 Click the button below to start a new development environment:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DJCordhose/mlops-drift)
 
+### Part II: Run Notebooks using Colab
+* Starting point for part I: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
+* Analysis for part II: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
+
+
 ## Local Installation
 
-Please have the installation ready and checked before the workshop. Should you run into problems, 
-please create an issue in this repository.
+Only recommended when you have experience with Docker and Python build tools.
 
 ### Prerequisites
-- Linux, Mac oder Windows installation with WSL2 (important)
+- Linux, Mac or Windows installation with WSL2 (important)
 - curl
 - Working Docker installation 
-- Recent version of a modern browser (like Chrome)
-- Google Account (for Colab)
 
-### Part I: local installation using docker
-
-_we only need one working installation per team, so if it really does not work on your machine, you can share with a colleague_
+### Part I: Start monitoring servers using docker
 
 ```
 docker compose up
@@ -53,9 +72,17 @@ Check the following services:
 
 ### Part II: cloud installation using Colab or local installation, both work fine
 
-_this should work for every participant_
+1. create an environment for the project using your favorite environment manager
+   * if you don't have one anaconda might be a good choice: `conda create --name mlops-drift --clone base` and `conda activate mlops-drift`
+1. pip install poetry
+1. poetry install
+1. Start your preferred notebook server
+   * if you do not have one, just do: `jupyter notebook`
+1. Run notebooks using your notebook server
+   * notebooks/train.ipynb
+   * notebooks/analysis.ipynb
 
-## Credits
+# Credits
 
 This repository is based on https://github.com/openknowledge/mlops-m3/tree/main/insurance-prediction
 
