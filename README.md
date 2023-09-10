@@ -20,7 +20,7 @@ your machine learning models in a real-world production environment.
 
 # Installation
 
-You can choose between to ways of installation. You can either install
+You can choose between two ways of installation. You can either install
 * locally: requires Docker and Poetry (or at least pip)
 * using the cloud: requires accounts for Google Colab and Gitpod
 
@@ -43,7 +43,9 @@ Click the button below to start a new development environment:
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/DJCordhose/mlops-drift)
 
-The standard setup might struggle a bit, but should still be able to run our setup. You might have to wait for a bit until docker has started all containers. Once ports are displayed in the lower right corner, the application has started. Click on the ports to open the overview view. Opening the application runnung on port 8080 should show the swagger interface on top of its API.
+The standard virtual machine might struggle a bit, but should still be able to run our setup. If you can use the more powerful setup.
+
+You might have to wait for a bit until docker has started all containers. Once ports are displayed in the lower right corner, the application has started. Click on the ports to open the overview view. Opening the application runnung on port 8080 should show the swagger interface on top of its API.
 
 ### Part II: Run Notebooks using Colab
 * Starting point for part I: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
@@ -52,12 +54,12 @@ The standard setup might struggle a bit, but should still be able to run our set
 
 ## Local Installation
 
-Only recommended when you have experience with Docker and Python build tools.
+Only recommended when you have experience with Docker and Python build tools and know what you are doing.
 
 ### Prerequisites
 - Linux, Mac or Windows installation with WSL2 (important)
 - curl
-- Working Docker installation 
+- Working Docker 2 installation 
 
 ### Part I: Start monitoring servers using docker
 
@@ -76,7 +78,7 @@ Check the following services:
 ### Part II: local notebook installation
 
 1. create an environment for the project using your favorite environment manager
-   * if you don't have one anaconda might be a good choice: `conda create --name mlops-drift --clone base` and `conda activate mlops-drift`
+   * if you don't have one, anaconda might be a good choice: `conda create --name mlops-drift --clone base` and `conda activate mlops-drift`
 1. pip install poetry
 1. poetry install
 1. Start your preferred notebook server
