@@ -31,6 +31,9 @@ pytest = "7.3.1"
 # Used only for the simulate-drift demo
 httpx = "0.24.0"
 
+[tool.poetry.group.dev.dependencies]
+ipykernel = "^6.25.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
