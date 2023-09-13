@@ -8,11 +8,11 @@ ports:
   - name: Prometheus
     port: 9090
     onOpen: open-browser
-    visibility: private
+    visibility: public
   - name: Grafana
     port: 3000
     onOpen: open-browser
-    visibility: private
+    visibility: public
   - name: App
     port: 8080
     onOpen: open-browser
