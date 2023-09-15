@@ -45,6 +45,8 @@ share_of_drifted_columns_gauge = Gauge('share_of_drifted_columns', '', registry=
 dataset_drift_gauge = Gauge('dataset_drift', '', registry=collector_registry)
 drift_score_by_columns_gauge = Gauge('drift_score_by_columns', '', ['feature'], registry=collector_registry)
 
+requests_in_windows_gauge = Gauge('requests_in_windows', '', registry=collector_registry)
+
 def _to_dataframe(current_data: Sequence[RiskPredictionInput]) -> pd.DataFrame:
     def _to_dict(risk_input: RiskPredictionInput) -> Dict[str, Any]:
         return {
@@ -64,6 +66,7 @@ def risk_prediction(fun: Callable[[RiskPredictionInput], Prediction]) -> Callabl
     def _wrapper(prediction_input: RiskPredictionInput) -> Prediction:
         prediction = fun(prediction_input)
         window.append(prediction_input)
+        requests_in_windows_gauge.set(len(window))
         if len(window) >= window_size:
             input_data = InputData(
                 reference_data=reference_dataset.copy(),
