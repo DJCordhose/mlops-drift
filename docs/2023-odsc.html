@@ -26,10 +26,7 @@
 
 https://odsc.com/california/speakers/
 
-I'm excited to confirm your proposal “MLOps: Monitoring and Managing Drift” has been accepted for ODSC West 2023 as an
-in-person Half-Day Training.
-
-Half day workshop, could be 75 minutes, then only part I
+MLOps: Monitoring and Managing Drift
 
 
 MLOps: Monitoring and Managing Drift
@@ -174,37 +171,45 @@ Lieber gemanagtes Environment nutzen
 
 
 
-<section data-markdown class="preparation" style="font-size: large;">
-	<textarea data-template>
-  
-## Mitnehmen
-* 30 Spicker ausdrucken
-  
-  ## 
-## Vorbereitung
-* Allen Docker Kram einmal wegschmeißen und neu bauen wie in Readme
-* gucken, dass alles läuft
-* Notebook aufmachen: https://colab.research.google.com/github/djcordhose/mlops/blob/main/insurance-prediction/notebooks/train.ipynb
-    
-	</textarea>
-  </section>
-  
 
 <section data-markdown>
     <textarea data-template>
 # MLOps: Monitoring and Managing Drift
+<h2 style="color: red;">Work in Progress</h2>
 
-ODSC West 2023, https://odsc.com/california/speakers/xxx
+ODSC West 2023, https://odsc.com/speakers/mlops-monitoring-and-managing-drift/
 
 Oliver Zeigermann
 
-<img src="img/bit.ly_odsc-west-mlops.png" style="height: 200px;">
 
+<img src="img/bit.ly_odsc-west-mlops.png" style="height: 200px;"><br>
 Slides: https://bit.ly/odsc-west-mlops
 
 <!-- https://djcordhose.github.io/mlops-drift/2023-odsc.html -->
 </textarea>
 </section>
+
+<section data-markdown class="preparation">
+	<textarea data-template>
+1. Gitpod starten
+   1. im Workspace auch die lokale installation machen
+1. Lokale installation starten
+   * ich hab eine lokale Installation auf meinem Rechner, falls irgendwas nicht geht
+	</textarea>
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+## Why this workshop?    
+
+_I have rarely been this excited about a workshop like this one_
+We have all skills coming together for this kind of work:
+1. DS, mostly second part
+1. Dev
+1. Ops    
+	</textarea>
+</section>
+
 
 <section data-markdown class="todo">
 	<textarea data-template>
@@ -214,7 +219,7 @@ Slides: https://bit.ly/odsc-west-mlops
 1. sonst erstmal auf Deutsch und dann von Copilot übersetzen lassen
 1. Eine komplette Stories spinnen, deshalb-aber
 1. ausdünnen für ODSC
-1. Und eine komplette Version für weitere Iterationen, Booster Bergen 2023 möglich 
+1. Und eine komplette Version für weitere Iterationen, Booster Bergen 2024 möglich 
 	</textarea>
 </section>
 
@@ -230,18 +235,6 @@ Slides: https://bit.ly/odsc-west-mlops
 </section>
 
 
-<section data-markdown class="fragments">
-### MLOps
-
-* MLOps ist abgeleitet von DevOps
-* Durch MLOps kommt ML in Produktion und wird in Betrieb gehalten
-* Dazu kommen eine Reihe von Werkzeugen und Praktiken zum Einsatz
-* Überschneidung aus
-  * Softwareentwicklung
-  * Operations
-  * Data Science
-</section>
-
 <section data-markdown>
 	<textarea data-template>
   ### Machine Learning Projecs can be thought as running in phases
@@ -251,15 +244,19 @@ Slides: https://bit.ly/odsc-west-mlops
   </textarea>
 </section>
 
-<section data-markdown>
-	<textarea data-template>
-  ### Machine Learning Projecs can be thought as running in phases
+<section data-markdown class="fragments">
+  ### MLOps
   
-  <img src='img/ml-phases-en.jpg' style="height: 100%;">
+  * MLOps is derived from DevOps
+  * MLOps brings ML into production and keeps it in operation
+  * A number of tools and practices are used for this
+  * Overlap from
+    * Software development
+    * Operations
+    * Data Science
+  </section>
   
-  </textarea>
-</section>
-
+  
 <section data-markdown>
 ### MLOps 1.0 vs MLOps 2.0
 
@@ -320,23 +317,6 @@ Slides: https://bit.ly/odsc-west-mlops
 </textarea>
 </section>
 
-<section data-markdown>
-### Phase 0: Enable Organization
-
-_Make sure people on all levels and all roles understand the specific needs and specialties of a machine learning project_
-
-* prepare for 80% garbage factor
-* clash of roles
-* largest part of job begins *after* production
-* this might be the hardest and least part of the overall job
-
-Links
-* https://fearlesschangepatterns.com/
-* https://www.rejectiontherapy.com/
-</section>
-
-
-
 <!-- <section data-markdown>
 	<textarea data-template>
 ### MLOps - komplettes Zine
@@ -360,35 +340,80 @@ Links
 
 <section data-markdown>
 	<textarea data-template>
-### Die Qualität von ML Systemen nimmt meist mit der Zeit ab
+### The quality of ML systems usually deteriorates over time
 
 <img src="img/zine/degrade.png" style="height: 530px;" class="fragment">
 
-<small>Das gilt nicht nur für ML Anwendungen, aber bei diesen ist es offensichtlicher</small>
-	</textarea>
+<small>This is not only true for ML applications, but it is more obvious with them</small>
+</textarea>
 </section>
+
 
 <section data-markdown>
 	<textarea data-template>
-### Aktualisierte Modelle sind immer wieder notwendig
+### Updated models are necessary frequently
 
 <img src="img/zine/intervention.png" style="height: 530px;" class="fragment">
 
-<small>Machine Learning Anwendungen brauchen Wartung</small>
+<small>Machine Learning applications need maintenance</small>
 	</textarea>
 </section>
 
 <section data-markdown>
 	<textarea data-template>
-  ### Ohne Ground Truth braucht man eine Ersatzmetrik
+### Without Ground Truth you need a surrogate metric
   
   <img src="img/zine/drift.png" style="height: 450px;" class="fragment">
   
   
-  *Wenn sich die Verteilung der Daten der Anfragen oder Vorhersagen deutlich von denen des Trainings unterscheiden* 
+*Distribution of data of requests or predictions differs significantly from that of training* 
   </textarea>
   </section>
   
+
+  <section data-markdown>
+    <textarea data-template>
+    ### Machine Learning Projecs can be thought as running in phases
+    
+    <img src='img/ml-phases-en.jpg' style="height: 100%;">
+    
+    </textarea>
+  </section>
+  
+  
+  <section data-markdown>
+  ### Phase 0: Enable Organization
+  
+  _Make sure people on all levels and all roles understand the specific needs and specialties of a machine learning project_
+  
+  * prepare for 80% garbage factor
+  * clash of roles
+  * largest part of job begins *after* production
+  * this might be the hardest and least part of the overall job
+  
+  Links
+  * https://fearlesschangepatterns.com/
+  * https://www.rejectiontherapy.com/
+  </section>
+  
+  <section data-markdown>
+    <textarea data-template>
+  ### Phase 1: Data Engineering
+    
+    _Make sure you have a reliable, reproducible and scalable data pipeline_
+    
+    * data versioning
+    * data validation
+    * data reproducibility
+    * data scalability
+    
+    Links
+    * https://www.kdnuggets.com/2021/03/data-version-control-what-why-how.html
+    *
+  </textarea>
+  </section>
+  
+    
 
 		</div>
 	</div>

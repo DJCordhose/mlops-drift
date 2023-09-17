@@ -9,7 +9,7 @@
    1. Tests, Training, 
 1. Modelle vergammeln in Prod, Grafiken dazu
 1. https://djcordhose.github.io/mlops/2023-oop.html#/36
-1. Wann sollte man ein neues Modell bringen?
+1. Wann sollte man ein neues Modell bringen? Woher weiß man wann und ob ein Modell vergammelt?
 
 
 ## Rolle
@@ -39,8 +39,6 @@
       1. Einen Request über ein curl
       1. /metrics zeigen
       1. `src/insurance_prediction/monitoring/data_drift.py`
-      1. https://docs.evidentlyai.com/reference/api-reference/evidently.options
-      1. 
    1. Prometheus auf Port 9090
       1. https://9090-djcordhose-mlopsdrift-062sqfohux7.ws-eu104.gitpod.io/targets?search=
       1. Nach "drift_score_by_columns" suchen
@@ -55,21 +53,21 @@
    1. emergency_braking (ca. 18 min auf Gitpod)
    1. age (ca. 20 min auf Gitpod)
 
-   1. Story:
+1. Story:
      1. die Performance des Modells degradiert
 	  1. aber wir haben erst nach Jahren eine Ground Truth, die uns das anhand der Metrik zeigt
+     1. Warum würde man Drift monitoren, auch wenn man die Ground Truth hat: https://www.evidentlyai.com/blog/ml-monitoring-do-i-need-data-drift
 	  1. wir simulieren 3 Jahre Betrieb mit
         1. Leute werden immer Älter, das passiert aber langsam (age)
 	     1. Es wird immer weniger Auto gefahren, Leute steigen um auf die Bahn und öffentliche Verkehrsmittel (miles)
 	     1. Die Sicherheit der Autos wird immer besser und der Einfluss der individuellen Fahrleistung wird verringert (emergency_braking, pred)  
 
 
-# TODO
-1. Kann man noch die Vorhersage mit in den Drift nehmen?
-1. Requests pro Minute/Stunde/Tag
-1. Gibt es mehr sinnvolle Hands-On-Teile?
-1. Was tut man wenn man den Verdacht hat, dass das Modell nicht mehr passt?
-
 # Mehr Material
 * Prod hat Einfluss auf die Welt und damit auf das Modell selbst: https://www.linkedin.com/posts/christoph-molnar_we-train-supervised-machine-learning-models-activity-7106935405395992577-DAPC?utm_source=share&utm_medium=member_android
-* Was macht man wenn man glaubt das Modell ist vergammelt: https://www.evidentlyai.com/blog/ml-monitoring-data-drift-how-to-handle
+* Was macht man wenn man glaubt das Modell ist vergammelt: 
+  * https://www.evidentlyai.com/blog/ml-monitoring-data-drift-how-to-handle
+  * https://opendatascience.com/mlops-monitoring-and-managing-drift/
+  * https://www.evidentlyai.com/blog/retrain-or-not-retrain
+
+![Alt text](img/drift-distribution.jpg)
