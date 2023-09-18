@@ -63,11 +63,32 @@
 	     1. Die Sicherheit der Autos wird immer besser und der Einfluss der individuellen Fahrleistung wird verringert (emergency_braking, pred)  
 
 
-# Mehr Material
-* Prod hat Einfluss auf die Welt und damit auf das Modell selbst: https://www.linkedin.com/posts/christoph-molnar_we-train-supervised-machine-learning-models-activity-7106935405395992577-DAPC?utm_source=share&utm_medium=member_android
-* Was macht man wenn man glaubt das Modell ist vergammelt: 
-  * https://www.evidentlyai.com/blog/ml-monitoring-data-drift-how-to-handle
-  * https://opendatascience.com/mlops-monitoring-and-managing-drift/
-  * https://www.evidentlyai.com/blog/retrain-or-not-retrain
+
+# Sammlung: Was macht man wenn man Drift vermutet
+
+## Links
+* https://www.evidentlyai.com/blog/ml-monitoring-data-drift-how-to-handle
+* https://www.evidentlyai.com/blog/retrain-or-not-retrain
+
+## Bilder der Verteilungen analysieren
+
+### Einfacher Drift
+
+Wenn die Form der Verteilung gleich bleibt, aber zu einer Seite driftet, deutet das darauf hin, dass sich beispielsweise das Alter des Publikums allgemein verändert.
+
+### Neue Untergruppe
+
+Wenn eine komplett neue Untergruppe außerhalb der ursprünglichen Form entsteht, sollte man diese Daten ausschließen und ein anderes Vorhersagesystem verwenden.
 
 ![Alt text](img/drift-distribution.jpg)
+
+### Veränderte Ausgabe
+
+Eine stetige Veränderung in den Vorhersagewerten könnte ein Anzeichen für einen feindlichen Angriff sein, der schnelles Handeln erfordert.
+
+### Drift innerhalb der Möglichkeiten des Modells
+
+Ein statistischer Test könnte eine Veränderung anzeigen, die jedoch innerhalb der ursprünglichen Reichweite liegt, was darauf hindeuten könnte, dass das Modell anpassungsfähig genug ist.
+
+# Mehr Material
+* Prod hat Einfluss auf die Welt und damit auf das Modell selbst: https://www.linkedin.com/posts/christoph-molnar_we-train-supervised-machine-learning-models-activity-7106935405395992577-DAPC?utm_source=share&utm_medium=member_android
