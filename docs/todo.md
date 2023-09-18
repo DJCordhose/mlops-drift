@@ -1,7 +1,9 @@
 ### Allgemein
 1. Drift für andere Datenarten
-   1. Image (wie im bestehenden Datensatz)
-   1. Text (muss ich noch herausarbeiten)
+   1. Image
+      * Typische Metriken auf Bildern ausrechnen, wie Komplexität  
+   1. Text
+      * https://www.evidentlyai.com/blog/embedding-drift-detection
 1. Gibt es mehr sinnvolle Hands-On-Teile?
 1. Evidently Intro als getting started: https://www.evidentlyai.com/blog/mlops-monitoring
 
