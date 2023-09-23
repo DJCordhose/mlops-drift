@@ -45,11 +45,14 @@ Click the button below to start a new development environment:
 
 The standard virtual machine might struggle a bit, but should still be able to run our setup. If you can use the more powerful setup.
 
-You might have to wait for a bit until docker has started all containers. Once ports are displayed in the lower right corner, the application has started. Click on the ports to open the overview view. Opening the application runnung on port 8080 should show the swagger interface on top of its API.
+You might have to wait for a bit until docker has started all containers. Once ports are displayed in the lower right corner, the application has started. Click on the ports to open the overview view. Opening the application running on port 8080 should show the swagger interface on top of its API.
+
+__Note:__ This _should_ work in Github Codespaces (https://github.com/features/codespaces) just fine, but this has not been tested so far.
 
 ### Part II: Run Notebooks using Colab
-* Starting point for part I: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
-* Analysis for part II: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
+* Developing drift metrics: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb
+* Analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
+* Re-Train: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
 
 
 ## Local Installation
@@ -84,10 +87,6 @@ Check the following services:
 1. Start your preferred notebook server
    * if you do not have one, just do: `jupyter notebook`
 1. Run notebooks using your notebook server
-   * notebooks/train.ipynb
-   * notebooks/analysis.ipynb
-
-# Credits
-
-This repository is based on https://github.com/openknowledge/mlops-m3/tree/main/insurance-prediction
-
+   * Developing drift metrics: notebooks/drift.ipynb
+   * Analysis: notebooks/analysis.ipynb
+   * Re-Train: notebooks/train.ipynb

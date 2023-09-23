@@ -1,94 +1,130 @@
 # Story
 
-## Intro
-1. Problemstellung: innovative Kfz-Versicherungsgesellschaft
-1. https://djcordhose.github.io/mlops/2023-oop.html#/6
-1. Ausgangspunkt mit Colab: notebooks/exploration.ipynb
-   1. Features
-   1. Was wollen wir vorhersagen?
-   1. Tests, Training, 
-1. Modelle vergammeln in Prod, Grafiken dazu
-1. https://djcordhose.github.io/mlops/2023-oop.html#/36
-1. Wann sollte man ein neues Modell bringen? Woher weiß man wann und ob ein Modell vergammelt?
+## Preparation
+1. Introduce yourself to your neighbors and build teams of 2-4 people
+   * what do you do
+   * what do you know already
+   * what questions do you wish answered today? what topics addressed?  
+   * you can of course participate all by yourself, but it is highly recommended to form a team
+1. Start project as described in Readme: 
+   1. local: docker compose up
+   1. remote: https://gitpod.io/#https://github.com/DJCordhose/mlops-drift
 
 
-## Rolle
-* Auftraggeber, Betreiber, Fachabteilung
-* Entwickler
+## Part I
 
-## Verantwortlichkeiten
-* Gemeinsam
-  * War sind die Kriterien für Normalbetrieb?
-  * Analyse bei Verlassen des Normalbetriebs
-* Auftraggeber, Betreiber, Fachabteilung
-  * Verständnis für die Metriken bekommen
-* Entwickler
-  * Metriken verständlich machen
-  * Aktionen nach Analyse nach Verlassen des Normalbetriebs  
+### Use Case
+1. Overview: https://djcordhose.github.io/mlops/2023-oop.html#/6
+1. **demo** request: https://djcordhose.github.io/mlops/2023-oop.html#/25
+   * open app on port 8080 (or forwarded port)
+   * issue one request using swagger
+   * execute generate curl as well
+1. **hands-on**: get system to run and make request to ml service   
+1. Basics of our model
+   * https://djcordhose.github.io/mlops/2023-oop.html#/7 
+   * dataset represents one month of data  
+   * identifying invariants of the model
 
+### Motivation/Issue   
+1. Could be end of the story, 
+1. but: models degenerate: https://djcordhose.github.io/mlops/2023-oop.html#/35
 
-## Monitoring
-
-### Hands-On: Produktion simulieren
-1. https://djcordhose.github.io/mlops/2023-oop.html#/46
-1. Projekt auf Gitpod mit dem Link im Readme des Repos starten: https://gitpod.io/#https://github.com/DJCordhose/mlops-drift
-   * sicher gehen, dass es das schnellere Modell ist
-1. Gestartete Services inspizieren
-   1. Die App auf Port 8080
-      1. Einen Request über die Swagger API abfeuern
-      1. Einen Request über ein curl
-      1. /metrics zeigen
-      1. `src/insurance_prediction/monitoring/data_drift.py`
-   1. Prometheus auf Port 9090
-      1. https://9090-djcordhose-mlopsdrift-062sqfohux7.ws-eu104.gitpod.io/targets?search=
-      1. Nach "drift_score_by_columns" suchen
-   1. Grafana auf Port 3000
-1. Betrieb mit den Live Daten monitoren
-   1. `./scripts/curl-drift.sh <URL app server>`
-1. Drift auf Gitpod mit dem schlechten Server dauert echt lange
-   - Ein Jahr nach ca. 20 min durch
-   - Drift nach ca. 20-25 min getektiert
-1. Drift in der Reihenfolge 
-   1. miles (ca. 15 min auf Gitpod)
-   1. emergency_braking (ca. 18 min auf Gitpod)
-   1. age (ca. 20 min auf Gitpod)
-
-1. Story:
-     1. die Performance des Modells degradiert
-	  1. aber wir haben erst nach Jahren eine Ground Truth, die uns das anhand der Metrik zeigt
-     1. Warum würde man Drift monitoren, auch wenn man die Ground Truth hat: https://www.evidentlyai.com/blog/ml-monitoring-do-i-need-data-drift
-	  1. wir simulieren 3 Jahre Betrieb mit
-        1. Leute werden immer Älter, das passiert aber langsam (age)
-	     1. Es wird immer weniger Auto gefahren, Leute steigen um auf die Bahn und öffentliche Verkehrsmittel (miles)
-	     1. Die Sicherheit der Autos wird immer besser und der Einfluss der individuellen Fahrleistung wird verringert (emergency_braking, pred)  
+### Approach: Monitor for data drift
+1. our story starts where others end
+   * when to intervene? how do we know that model performance degrades?
+   * what we wish: check performance in prod vs train
+   * often we can not do that, as ground truth misses or comes with significant delay
+     * question: how long would we have to wait in our example?
+1. our trick: use a surrogate      
+   * compare distributions from training to prod
+   * even if we have ground truth, it might not be enough and a surrogate might help: https://www.evidentlyai.com/blog/ml-monitoring-do-i-need-data-drift
+   * example age: https://djcordhose.github.io/mlops/2023-oop.html#/42
+1. **demo** and **shared hands-on** Monitoring setup: 
+   1. looking at the services one by one:
+      * birds eye view: https://djcordhose.github.io/mlops/2023-oop.html#/46
+     1. Visualization of drift in Grafana
+     1. But: where does the drift data come from? 
+     1. Prometheus as a data source
+        * search for drift
+     1. But: how does it get into the ts database?
+     1. monitoring server     
+     * birds eye view again: https://djcordhose.github.io/mlops/2023-oop.html#/46
+   1. we simulate production use
+      * three years worth of production data
+      * 1500 each month
+      * `./scripts/curl-drift.sh <URL app server>`
 
 
+## Part II
 
-# Sammlung: Was macht man wenn man Drift vermutet
+### How did we do the actual monitoring: Introducing Evidently
 
-## Links
-* https://www.evidentlyai.com/blog/ml-monitoring-data-drift-how-to-handle
-* https://www.evidentlyai.com/blog/retrain-or-not-retrain
+* kinds of drift: https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/74
+* which test to use
+  * https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/52
+  * https://www.evidentlyai.com/blog/data-drift-detection-large-datasets
+* **notebook** developing drift metrics: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb
+* matching **code**: `src/insurance_prediction/monitoring/data_drift.py`
 
-## Bilder der Verteilungen analysieren
 
-### Einfacher Drift
+### What is actually going on: Analysis
 
-Wenn die Form der Verteilung gleich bleibt, aber zu einer Seite driftet, deutet das darauf hin, dass sich beispielsweise das Alter des Publikums allgemein verändert.
+1. Looking at distributions: https://opendatascience.com/mlops-monitoring-and-managing-drift/
+1. **notebook** drift analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
+1. Interpretation: https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/75
+1. In our case:
+   1. Leute werden immer Älter, das passiert aber langsam (age)
+   1. Es wird immer weniger Auto gefahren, Leute steigen um auf die Bahn und öffentliche Verkehrsmittel (miles)
+   1. Die Sicherheit der Autos wird immer besser und der Einfluss der individuellen Fahrleistung wird verringert (emergency_braking, pred)  
 
-### Neue Untergruppe
+### What to do about it: Taking measures
 
-Wenn eine komplett neue Untergruppe außerhalb der ursprünglichen Form entsteht, sollte man diese Daten ausschließen und ein anderes Vorhersagesystem verwenden.
+1. do nothing 
+1. Re-Train and re-engineer
+   * https://www.evidentlyai.com/blog/retrain-or-not-retrain
+   * **notebook** validation, training, retraining, re-engineering: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
+   1. option: we have new ground truth
+      1. simulate new data with `month-12.csv.gz`
+      1. validate old model with new data
+      1. if performance is worse: retrain
+      1. it is: retrain
+      1. new model does not longer hold wanted (quality) invariants
+      1. decide what to do about it
+   1. no ground truth
+      * we can only retrain using old data
+      * only makes sense with re-engineering
+      * remove feature that is showing drift
+      * re-weight, up/down-sample training data
+1. fall back
+   * a machine learning model does not work all by itself: https://djcordhose.github.io/mlops/2023-oop.html#/23
+     * request showing more than one model does its work
+   * fall back completely
+     * manual
+     * (rule based) baseline
+   * fall back for individual segments: ![Alt text](img/drift-distribution.jpg)
+   * matching **code**: src/insurance_prediction/model/insurance.py
 
-![Alt text](img/drift-distribution.jpg)
 
-### Veränderte Ausgabe
+## Optional Parts
+1. alternative Architectures
+1. roles and responsibilities
+1. Drift für andere Datenarten
+   1. Image
+      * Typische Metriken auf Bildern ausrechnen, wie Komplexität  
+   1. Text
+      * https://www.evidentlyai.com/blog/embedding-drift-detection
+1. Was kann man noch monitoren?
+   1. Vorhersage mit in den Drift nehmen?
+   1. Unterschiedliche typische Metriken wenn man ground truth hat
+   1. Requests pro Minute/Stunde/Tag
+   1. User Feedback
+   1. ‍Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
 
-Eine stetige Veränderung in den Vorhersagewerten könnte ein Anzeichen für einen feindlichen Angriff sein, der schnelles Handeln erfordert.
 
-### Drift innerhalb der Möglichkeiten des Modells
-
-Ein statistischer Test könnte eine Veränderung anzeigen, die jedoch innerhalb der ursprünglichen Reichweite liegt, was darauf hindeuten könnte, dass das Modell anpassungsfähig genug ist.
-
-# Mehr Material
-* Prod hat Einfluss auf die Welt und damit auf das Modell selbst: https://www.linkedin.com/posts/christoph-molnar_we-train-supervised-machine-learning-models-activity-7106935405395992577-DAPC?utm_source=share&utm_medium=member_android
+## Wrap Up
+* Revisit all parts using birds eye view: https://djcordhose.github.io/mlops/2023-oop.html#/46
+* Link to material
+* Contact
+* Feedback
+* Open Questions
+* https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/72
