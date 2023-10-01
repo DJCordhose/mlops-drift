@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
 	<meta charset="utf-8">
@@ -222,10 +222,138 @@ Machine Learning Engineer/Architect from Hamburg, Germany
 
 * the story for this workshop is here: https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
 * some texts/images/sources/links are still be in German, but this will be fixed before the workshop
-* eventually, there _might_ be more slides here, but everything is in the story anyway
-* there _might_ be a Miro board as well
+* the slides following are just a support for the story
 
 	</textarea>
+</section>
+
+<section data-markdown>
+	<textarea data-template>
+## Material referenced from the story
+
+https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
+
+	</textarea>
+</section>
+
+<section data-markdown id="use-case">
+	<textarea data-template>
+### Use Case: Predict Risk 
+
+<img src="img/zine/use-case.png" style="height: 530px;" class="fragment">
+
+<small>Objective: Risk of potential customer as LOW, MEDIUM, HIGH</small>
+	</textarea>
+</section>
+
+<section data-markdown class="fragments" id="demo-request">
+  <textarea data-template>
+<img src="img/mlops/swagger-sample-request.jpg" style="height: 40vh;">
+
+*Result of example*
+```
+{
+  "prediction": "LOW",
+  "probabilities": {
+    "HIGH": 0.0003246392006985843,
+    "MEDIUM": 0.022435296326875687,
+    "LOW": 0.9772400259971619
+  },
+  "predictor_type": "MODEL"
+}
+```
+</textarea>
+</section>
+
+<section data-markdown style="font-size: xx-large;" id="starting-point" lang="de">
+  <textarea data-template>
+## Unser Ausgangspunkt
+
+Notebooks sind das klassische Werkzeug der ML Entwicklung: 
+https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
+
+* Neuronales Netzwerk mit TensorFlow
+* 3 Hidden Layers, 100 Neuronen pro Layer
+* 1500 Datensätze insgesamt
+  * Training auf 1200 Datensätzen
+  * Test/Validation auf 300 Datensätzen
+* Accuracy Training/Test > 85%
+
+</textarea>
+</section>  
+
+<section data-markdown id="model-degrade">
+	<textarea data-template>
+### The quality of ML systems usually deteriorates over time
+
+<img src="img/zine/degrade.png" style="height: 530px;" class="fragment">
+
+<small>This is not only true for ML applications, but it is more obvious with them</small>
+</textarea>
+</section>
+
+
+<section data-markdown id="model-intervention">
+	<textarea data-template>
+### Updated models are necessary frequently
+
+<img src="img/zine/intervention.png" style="height: 530px;" class="fragment">
+
+<small>Machine Learning applications need maintenance</small>
+	</textarea>
+</section>
+
+<section data-markdown id="model-drift">
+	<textarea data-template>
+### Without Ground Truth you need a surrogate metric
+  
+  <img src="img/zine/drift.png" style="height: 450px;" class="fragment">
+  
+  
+*Distribution of data of requests or predictions differs significantly from that of training* 
+  </textarea>
+  </section>
+  
+
+  <section data-markdown class="fragments" id="age-distribution">
+    <textarea data-template>
+  ### Distribution of Ages at the time of training
+  
+  <img src="img/causal-insurance/age-reference.png">
+  
+  </textarea>
+  </section>
+  
+  <section data-markdown class="fragments" id="age-drift-1">
+    <textarea data-template>
+    ### does this drift? 
+    
+    <img src="img/causal-insurance/age_no_drift_p75_no_clue.png">
+    
+    </textarea>
+    </section>
+    
+    <section data-markdown class="fragments" id="age-drift-2">
+    <textarea data-template>
+    ### and this? 
+    
+    <img src="img/causal-insurance/age_drift_p0_no_clue.png">
+    
+    </textarea>
+    </section>
+
+<section data-markdown id="monitoring-stack">
+	<textarea data-template>
+### Monitoring with Evidently, Prometheus und Grafana
+
+<img src="img/mlops/evidently_grafana_service.png">
+
+<small>https://evidentlyai.com/blog/evidently-and-grafana-ml-monitoring-live-dashboards
+<br>
+https://docs.evidentlyai.com/integrations/evidently-and-grafana
+</small>
+
+</textarea>
 </section>
 
 <!-- <section data-markdown class="todo">
@@ -379,48 +507,7 @@ We have all skills coming together for this kind of work:
 </section>
  -->
 
- <!-- <section data-markdown>
-	<textarea data-template>
-### Use Case: Predict Risk 
-
-<img src="img/zine/use-case.png" style="height: 530px;" class="fragment">
-
-<small>Objective: Risk of potential customer as LOW, MEDIUM, HIGH</small>
-	</textarea>
-</section>
-
-<section data-markdown>
-	<textarea data-template>
-### The quality of ML systems usually deteriorates over time
-
-<img src="img/zine/degrade.png" style="height: 530px;" class="fragment">
-
-<small>This is not only true for ML applications, but it is more obvious with them</small>
-</textarea>
-</section>
-
-
-<section data-markdown>
-	<textarea data-template>
-### Updated models are necessary frequently
-
-<img src="img/zine/intervention.png" style="height: 530px;" class="fragment">
-
-<small>Machine Learning applications need maintenance</small>
-	</textarea>
-</section>
-
-<section data-markdown>
-	<textarea data-template>
-### Without Ground Truth you need a surrogate metric
-  
-  <img src="img/zine/drift.png" style="height: 450px;" class="fragment">
-  
-  
-*Distribution of data of requests or predictions differs significantly from that of training* 
-  </textarea>
-  </section>
-  
+ <!-- 
 
   <section data-markdown>
     <textarea data-template>

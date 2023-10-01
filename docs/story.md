@@ -1,6 +1,7 @@
 # Story
 
 ## Preparation
+1. make sure you have installed the project as described in https://github.com/DJCordhose/mlops-drift/blob/main/README.md#installation
 1. Introduce yourself to your neighbors and build teams of 2-4 people
    * what do you do
    * what do you know already
@@ -14,20 +15,21 @@
 ## Part I
 
 ### Use Case
-1. Overview: https://djcordhose.github.io/mlops/2023-oop.html#/6
-1. **demo** request: https://djcordhose.github.io/mlops/2023-oop.html#/25
+1. Overview: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/use-case
+1. **demo** request: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/demo-request
    * open app on port 8080 (or forwarded port)
    * issue one request using swagger
    * execute generate curl as well
 1. **hands-on**: get system to run and make request to ml service   
 1. Basics of our model
-   * https://djcordhose.github.io/mlops/2023-oop.html#/7 
+   * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/starting-point
    * dataset represents one month of data  
    * identifying invariants of the model
 
 ### Motivation/Issue   
 1. Could be end of the story, 
-1. but: models degenerate: https://djcordhose.github.io/mlops/2023-oop.html#/35
+1. but: models degenerate: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-degrade
+1. intervention might be necessary: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-intervention
 
 ### Approach: Monitor for data drift
 1. our story starts where others end
@@ -36,19 +38,22 @@
    * often we can not do that, as ground truth misses or comes with significant delay
      * question: how long would we have to wait in our example?
 1. our trick: use a surrogate      
-   * compare distributions from training to prod
+   * compare distributions from training to prod: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-drift
    * even if we have ground truth, it might not be enough and a surrogate might help: https://www.evidentlyai.com/blog/ml-monitoring-do-i-need-data-drift
-   * example age: https://djcordhose.github.io/mlops/2023-oop.html#/42
+   * example age: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/age-distribution
+   * does this drift? https://djcordhose.github.io/mlops-drift/2023-odsc.html#/age-drift-1
+   * and this? https://djcordhose.github.io/mlops-drift/2023-odsc.html#/age-drift-2
+   * we will revisit this later, first we need some tooling to find out
 1. **demo** and **shared hands-on** Monitoring setup: 
    1. looking at the services one by one:
-      * birds eye view: https://djcordhose.github.io/mlops/2023-oop.html#/46
+      * birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
      1. Visualization of drift in Grafana
      1. But: where does the drift data come from? 
      1. Prometheus as a data source
         * search for drift
      1. But: how does it get into the ts database?
      1. monitoring server     
-     * birds eye view again: https://djcordhose.github.io/mlops/2023-oop.html#/46
+     * birds eye view again: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
    1. we simulate production use
       * three years worth of production data
       * 1500 each month
