@@ -64,9 +64,11 @@
 
 ### How did we do the actual monitoring: Introducing Evidently
 
-* kinds of drift: https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/74
+* kinds of drift: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/types-drift
 * which test to use
-  * https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/52
+  * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/stats-test
+    * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/Wasserstein
+    * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/Jensen-Shannon
   * https://www.evidentlyai.com/blog/data-drift-detection-large-datasets
 * **notebook** developing drift metrics: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb
 * matching **code**: `src/insurance_prediction/monitoring/data_drift.py`
@@ -76,11 +78,12 @@
 
 1. Looking at distributions: https://opendatascience.com/mlops-monitoring-and-managing-drift/
 1. **notebook** drift analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
-1. Interpretation: https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/75
+1. Interpretation: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/drift-interpretation
 1. In our case:
-   1. Leute werden immer Älter, das passiert aber langsam (age)
-   1. Es wird immer weniger Auto gefahren, Leute steigen um auf die Bahn und öffentliche Verkehrsmittel (miles)
-   1. Die Sicherheit der Autos wird immer besser und der Einfluss der individuellen Fahrleistung wird verringert (emergency_braking, pred)  
+   1. People get older, but slowly (age)
+   1. People drive less, they switch to public transport (miles)
+   1. Cars get safer and the influence of individual driving performance is reduced (emergency_braking, pred)
+
 
 ### What to do about it: Taking measures
 
@@ -101,7 +104,7 @@
       * remove feature that is showing drift
       * re-weight, up/down-sample training data
 1. fall back
-   * a machine learning model does not work all by itself: https://djcordhose.github.io/mlops/2023-oop.html#/23
+   * a machine learning model does not work all by itself: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/ml-system
      * request showing more than one model does its work
    * fall back completely
      * manual
@@ -113,23 +116,12 @@
 ## Optional Parts
 1. alternative Architectures
 1. roles and responsibilities
-1. Drift für andere Datenarten
-   1. Image
-      * Typische Metriken auf Bildern ausrechnen, wie Komplexität  
-   1. Text
-      * https://www.evidentlyai.com/blog/embedding-drift-detection
-1. Was kann man noch monitoren?
-   1. Vorhersage mit in den Drift nehmen?
-   1. Unterschiedliche typische Metriken wenn man ground truth hat
-   1. Requests pro Minute/Stunde/Tag
-   1. User Feedback
-   1. ‍Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
+1. More Material: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/what-else
 
 
 ## Wrap Up
-* Revisit all parts using birds eye view: https://djcordhose.github.io/mlops/2023-oop.html#/46
+* Revisit all parts using birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
 * Link to material
-* Contact
+* Keep in Contact, email, linkedIn
 * Feedback
 * Open Questions
-* https://openknowledge.github.io/mlops/2022-d2d-workshop.html#/72

@@ -173,6 +173,7 @@ Slides: https://bit.ly/odsc-west-mlops
 1. _MonitoringDrift_: You want to know that there might be a problem with the quality of your model _before_ 
    1. your (internal or external) partners notice
    1. your users notice
+   1. you lose trust
    1. your business is impacted
    1. you are in the news
 
@@ -265,7 +266,7 @@ https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
 </textarea>
 </section>
 
-<section data-markdown style="font-size: xx-large;" id="starting-point" lang="de">
+<!-- <section data-markdown style="font-size: xx-large;" id="starting-point" lang="de">
   <textarea data-template>
 ## Unser Ausgangspunkt
 
@@ -280,7 +281,24 @@ https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebo
 * Accuracy Training/Test > 85%
 
 </textarea>
-</section>  
+</section>   -->
+
+<section data-markdown style="font-size: xx-large;" id="starting-point" lang="en">
+  <textarea data-template>
+## Our starting point
+
+Notebooks are the classic tool for ML development:
+https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
+
+* Neural network with TensorFlow
+* 3 hidden layers, 100 neurons per layer
+* 1500 data sets in total
+  * Training on 1200 data sets
+  * Test/validation on 300 data sets
+* Accuracy training/test > 85%
+  </textarea>
+</section>
+
 
 <section data-markdown id="model-degrade">
 	<textarea data-template>
@@ -356,16 +374,252 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 </textarea>
 </section>
 
-<!-- <section data-markdown class="todo">
+<section data-markdown lang="de" id="types-drift">
+	<textarea data-template>
+### Zusammenfassung: Arten von Drift
+
+* _Covariate / Input / Data drift_: Verteilung der Eingabe hat sich geändert
+* _Prior / Label / Prediction drift_: Verteilung der Vorhersage hat sich geändert
+* _Concept / Model drift_: Zusammenhang zwischen Eingabe und Vorhersage hat sich geändert
+
+<img src="https://docs.seldon.io/projects/alibi-detect/en/stable/_images/bg_2d_drift.png" style="height: 100%;">
+
+<small>https://docs.seldon.io/projects/alibi-detect/en/stable/cd/background.html#what-is-drift
+</small>
+</textarea>
+</section>
+
+<section data-markdown style="font-size: x-large;" lang="de" id="drift-interpretation">
+	<textarea data-template>
+## Drift erfordert Interpretation
+
+Wenn die Welt sich ändert, ist Drift zu erwarten und damit ok
+
+|   | Positive Interpretation, keine Maßnahme erforderlich  | Negative Interpretation, Maßnahme erforderlich  |
+|---|---|---|
+| *Data und Prediction Drift*  | wichtige Features haben sich geändert, Modell kommt klar und extrapoliert gut, z.B.: Höheres Alter, mehr Risiko  |  wichtige Features haben sich geändert, Modell extrapoliert nicht sinnvoll |
+| *Data aber kein Prediction Drift*  | keine wichtigen Features geändert, das Modell ist robust genug für den Drift  | wichtige Features geändert, Modell extrapoliert nicht sinnvoll |
+| *Prediction aber kein Data Drift*  | ???  | wahrscheinlich Concept Drift, neue Analyse der Situation notwendig |
+|   |   |   |
+
+</textarea>
+</section>
+
+<section data-markdown lang="de" id="stats-test">
+	<textarea data-template>
+## Welcher Statistischer Test / welche Metrik?
+
+es gibt leider nicht den einen passenden Test
+
+* manche passen nur gut für kleine (< 1000) Datenmengen
+  * unsere Datenmengen sind größer als 1000
+* manche können nicht nur auf numerischen sondern kategorischen Daten arbeiten
+  * wir brauchen beides
+* manche sind zwischen 0 und 1 normiert
+  * das ist uns eher egal
+* unsere Metriken
+  * Wasserstein Metrik für numerische Daten
+  * Jensen-Shannon Distanz für kategorische Daten  
+
+https://evidentlyai.com/blog/data-drift-detection-large-datasets
+</textarea>
+</section>
+
+<section data-markdown lang="de" id="Wasserstein">
+	<textarea data-template>
+### Die Wasserstein-Metrik
+
+_Wenn jede Verteilung als ein Haufen von „Erde“ angehäuft auf dem metrischen Raum betrachtet wird, dann beschreibt diese
+Metrik die minimalen „Kosten“ der Umwandlung eines Haufens in den anderen._
+
+* nicht zu sensitiv, zeigt nur größere Veränderungen an
+* normiert in Veränderungen in Standardabweichungen
+* kann (offensichtlich) über 1 gehen
+* ab 0.1 gehen wir von einem Drift aus
+* funktioniert nur für numerische Daten
+
+https://en.wikipedia.org/wiki/Wasserstein_metric
+</textarea>
+</section>
+
+<section data-markdown lang="de" id="Jensen-Shannon">
+	<textarea data-template>
+### Jensen-Shannon Divergenz
+
+* Jensen-Shannon Distanz ist wie Wurzel aus der Divergenz, das ist unsere Metrik
+* zwischen 0 und 1
+* ab 0.1 gehen wir von einem Drift aus
+* funktioniert auch für kategorische Daten
+* basiert auf Kullback–Leibler Divergenz, relative Entropie
+* Histogramme werden verglichen, Größe des Samples daher egal
+* Binning für kategorische Daten offensichtlich
+* Intuition: wie viel Information/Entropie/Überraschung steckt im Unterschied der beiden Verteilungen?
+
+
+https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence
+https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
+</textarea>
+</section>
+
+<section data-markdown id="ml-system">
+	<textarea data-template>
+### A ML model does not go into production all by itself
+
+<img src="img/ml-system-postits.jpg" style="height: 550px;">
+
+</textarea>
+</section>
+
+
+<section data-markdown id="what-else">
+### What else / more material   
+</section>
+
+<section data-markdown class="fragments" lang="de">
+## Was kann man sonst noch monitoren?
+  
+* Qualität der Daten
+  * wie verändern sich fehlende oder falsche Felder
+  * Plausibilität
+* Daten Drift
+  * Verteilung der Eingabedaten
+* Prediction Drift   
+  * Was gibt das Modell aus?
+* Whenn man Ground Truth hat
+  * Metrik für die Qualität der Vorhersage wie beim Training verwendet
+  * Unterschiedliche typische Qualitäts-Metriken
+  * Vorsicht: jede noch so gute Metrik ist wieder nur ein Surrogat für die Qualität der Vorhersage 
+* Requests pro Minute/Stunde/Tag
+* User Feedback
+* Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
+
+  </section>
+  
+  <section data-markdown lang="de">
+  ## Datenqualität
+  
+  * Felder
+    * fehlen
+    * ungültig
+    * falsch / unplausibel / Wertebereich verlassen
+  * Features 
+    * konstante (die (meisten) Eingaben haben (fast) denselben Wert)
+    * leere
+    * fast leer
+    * Korrelationen zwischen Features
+  </section>
+    
+  
+  <section data-markdown class="fragments"  lang="de">
+    <textarea data-template>
+  ### Was kann man sonst noch machen
+  
+  * Outlier-Detection
+    * Unser Modell wird nicht extrapolieren können
+    * Werte außerhalb des Trainings-Bereichs werden wahrscheinlich unrealistisch sicher vorhergesagt
+    * Ausreißer müssen ohne Ground Truth entdeckt werden 
+  * Adversarial Detection
+    * Bestimmte Eingaben können absichtlich eine grob falsche Vorhersage herbei führen 
+    * Solche Eingaben können erkannt und korrigiert werden
+    * Dazu kann z.B. ein Autoencoder benutzt werden, der die Eingabe korrigiert
+  
+  
+  <small>https://docs.seldon.io/projects/alibi-detect/en/stable/od/methods.html
+  <br>
+  https://docs.seldon.io/projects/alibi-detect/en/stable/ad/methods.html
+  </small>
+  </textarea>
+  </section>
+  
+  <section data-markdown class="fragments" lang="de">
+    <textarea data-template>
+  ### Drift Detection für Bilder
+  
+  _Bild auf typische aggregierte Eigenschaften reduzieren_  
+  * Input Drift mit Histogrammen von Low-Level-Features (HSV): https://towardsdatascience.com/detecting-semantic-drift-within-image-data-6a59a0e768c6
+  * Input Drift mit Dimensions-Reduktion: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_ks_cifar10.html 
+  * Model Drift durch Vergleich mit destilliertem Modell: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_distillation_cifar10.html 
+  * Ein komplettes Beispiel mit Alibi-Detect: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/alibi_detect_deploy.html#4.-Drift-detection-with-Kolmogorov-Smirnov
+  * Anomalien in Bildern: https://29a.ch/photo-forensics
+  </textarea>
+  </section>
+
+  <section data-markdown>
   <textarea data-template>
+### Drift Detection for Text
+
+* https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_text_imdb.html
+* https://www.evidentlyai.com/blog/embedding-drift-detection
+</textarea>
+</section>
+
+  <section data-markdown class="fragments" lang="de">
+    <textarea data-template>
+  ### Wann liegt Ground Truth vor?
+  
+  *Menschliche Experten können die Ground Truth*
+  * *bestimmen* 
+    * sobald ein Mensch die Entscheidungen nachprüft / revidiert
+    * bei einem Proposal-System kann das sehr schnell sein
+    * bei Dunkelverarbeitung sollte dies in regelmäßigen Abständen passieren
+  * *nicht bestimmen*
+    * wir müssen Realitäten abwarten
+    * bei Zeitreihen wird auf die nahe Zukunft vorhergesagt, sobald diese Eintritt kann überprüft werden
+    * oft sind solche Realitäten erst nach einiger Zeit wahrnehmbar und unterliegen statistischen Schwankungen (wie bei uns)
+  </textarea>
+  </section>
+  
+  <section data-markdown class="fragments" lang="de">
+    <textarea data-template>
+  ### Unsere Vorhersage selbst erzeugt Drift
+  
+  * Ein Deployment ändert das unsere Rolle von Beobachter zu Akteur
+  * Wir versichern nur Leute mit einer guten Risiko Prognose
+    * Wenn nicht, warum sollten wir dann eine überhaupt eine Prognose machen?
+  * Unsere GT wird mehr und mehr gute Fahrer haben
+    * Zumindest ist das unsere Hoffnung (sonst hätte die Prognose nicht geklappt)
+  * Falls nicht (False Negative, Type II Fehler)
+    * haben Menschen gelernt, unser System auszutricksen?
+    * "Dann versichert eben meine Tochter den Wagen"
+  * Haben wir gute Fahrer aus verstehen nicht versichert (False Positive, Type I Fehler)
+    * Möglichkeit: *epsilon-greedy* meistens der Vorhersage glauben, aber manchmal (epsilon) auch einen Fahrer mit schlechter Prognose versichern 
+    * Vorhersage mit allen Wahrscheinlichkeiten geht in unsere Datenbank ein
+  
+  https://twitter.com/ChristophMolnar/status/1569644089724764160
+  </textarea>
+  </section>
+
+  <section data-markdown>
+    <textarea data-template>
 ### Google Rubric Score
 * https://developers.google.com/machine-learning/guides/rules-of-ml
 * https://research.google/pubs/pub46555/
 * https://research.google/pubs/pub45742/
 * https://laszlo.substack.com/p/article-review-the-ml-test-score
-  </textarea>
-  </section>
+    </textarea>
+    </section>
 
+<section data-markdown>
+	<textarea data-template>
+### Challenges in Machine Learning Projects
+
+<img src="img/biggest_challenges_ML_MLCon_2023.jpg" style="height: 530px;" class="fragment">
+
+<small>Survey MLConf Berlin 2023</small>
+	</textarea>
+</section>
+
+
+<section data-markdown>
+	<textarea data-template>
+  ### Machine Learning Projecs can be thought as running in phases
+  
+  <img src='img/ml-phases-small-en.jpg' style="height: 100%;">
+  
+  </textarea>
+</section>
+    
+<!--
 
 <section data-markdown class="preparation">
 	<textarea data-template>
@@ -390,38 +644,6 @@ We have all skills coming together for this kind of work:
 </section>
 
 
-<section data-markdown class="todo">
-	<textarea data-template>
-### Alles Material sammeln, das ich über MLOps habe
-
-1. wenn auf Englisch, dann Englische Version
-1. sonst erstmal auf Deutsch und dann von Copilot übersetzen lassen
-1. Eine komplette Stories spinnen, deshalb-aber
-1. ausdünnen für ODSC
-1. Und eine komplette Version für weitere Iterationen, Booster Bergen 2024 möglich 
-	</textarea>
-</section>
-
-
-<section data-markdown>
-	<textarea data-template>
-### Challenges in Machine Learning Projects
-
-<img src="img/biggest_challenges_ML_MLCon_2023.jpg" style="height: 530px;" class="fragment">
-
-<small>Survey MLConf Berlin 2023</small>
-	</textarea>
-</section>
-
-
-<section data-markdown>
-	<textarea data-template>
-  ### Machine Learning Projecs can be thought as running in phases
-  
-  <img src='img/ml-phases-small-en.jpg' style="height: 100%;">
-  
-  </textarea>
-</section>
 
 <section data-markdown class="fragments">
   ### MLOps
