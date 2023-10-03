@@ -12,7 +12,22 @@
    1. remote: https://gitpod.io/#https://github.com/DJCordhose/mlops-drift
 
 
+## How you can benefit
+
+There is a lot of material to be covered, so there will be limited time to try things completely one your own.
+
+There are different modes of participation, you will benefit from all of them. 
+Choose depending on previous knowledge and your preferences:
+1. No installation on your side necessary:
+   1. Do this in cinema mode
+   1. Ask questions at any time
+1. At least some parts should be running
+   1. Do what Olli does in sync
+   1. Fork at any point and make your own experiments, you are welcome to give a report of what you learned
+
 ## Part I
+
+**Working on the bigger picture**
 
 ### Use Case
 1. Overview: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/use-case
@@ -20,7 +35,6 @@
    * open app on port 8080 (or forwarded port)
    * issue one request using swagger
    * execute generate curl as well
-1. **hands-on**: get system to run and make request to ml service   
 1. Basics of our model
    * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/starting-point
    * dataset represents one month of data  
@@ -61,6 +75,8 @@
 
 
 ## Part II
+
+**Working on the bigger picture**
 
 ### How did we do the actual monitoring: Introducing Evidently
 
@@ -113,12 +129,6 @@
    * matching **code**: src/insurance_prediction/model/insurance.py
 
 
-## Optional Parts
-1. alternative Architectures
-1. roles and responsibilities
-1. More Material: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/what-else
-
-
 ## Wrap Up
 * Revisit all monitoring parts using birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
 * Revisit all steps in notebooks
@@ -127,7 +137,7 @@
 * Feedback
 * Open Questions
 
-# Steps in Notebooks:
+## Steps in Notebooks:
 1. Train: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
    * successfully validate model
 1. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb?hl=en
@@ -151,3 +161,10 @@
       * even if validation fails, this is most likely the better model
 1. Consider using a fallback
    * at least temporarily and/or partially
+
+## Optional Parts
+1. alternative Architectures
+1. roles and responsibilities
+1. More Material: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/what-else
+
+
