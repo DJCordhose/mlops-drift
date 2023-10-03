@@ -128,17 +128,26 @@
 * Open Questions
 
 # Steps in Notebooks:
-1. Train: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain.ipynb?hl=en
+1. Train: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
    * successfully validate model
 1. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb?hl=en
 1. Analyze Cause for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
-1. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain.ipynb?hl=en
-   * skip training 
-   * validation fails one 36 month, but also on 12 month
-1. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain.ipynb.ipynb?hl=en
-   * works okayish
-   * validation still fails on newer data
-1. Re-engineer model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain?hl=en
-  * change feature set to avoid overfitting
-  * train with old or new data
-  * validation still fails, might need to change required properties
+1. Two options: do we have new training data  with valid ground truth 
+1. Option I - we have _new data_
+   1. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
+      * skip training 
+      * validation fails one 36 month, but also on 12 month
+   1. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
+      * works okayish
+      * validation still fails on newer data
+   1. Re-engineer model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
+      * change feature set to avoid overfitting
+      * train with new data
+      * validation still fails, might need to change required properties
+1. Option II - we have _no new data_
+   1. Re-engineer model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
+      * change feature set to avoid overfitting
+      * train with old data
+      * even if validation fails, this is most likely the better model
+1. Consider using a fallback
+   * at least temporarily and/or partially
