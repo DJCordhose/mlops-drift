@@ -152,7 +152,6 @@ Lieber gemanagtes Environment nutzen
 <section data-markdown>
     <textarea data-template>
 # MLOps: Monitoring and Managing Drift
-<h2 style="color: red;">Work in Progress</h2>
 
 ODSC West 2023, https://odsc.com/speakers/mlops-monitoring-and-managing-drift/
 Monday, 30th October, 10:00 AM - 1:15 PM
@@ -161,8 +160,9 @@ Oliver Zeigermann
 
 
 <img src="img/bit.ly_odsc-west-mlops.png" style="height: 150px;"><br>
-Slides: https://bit.ly/odsc-west-mlops
+These Slides: https://bit.ly/odsc-west-mlops
 
+Project: https://github.com/DJCordhose/mlops-drift
 <!-- https://djcordhose.github.io/mlops-drift/2023-odsc.html -->
 </textarea>
 </section>
@@ -222,17 +222,7 @@ Machine Learning Engineer/Architect from Hamburg, Germany
 ## Wait, are these all the slides?
 
 * the story for this workshop is here: https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
-* some texts/images/sources/links are still be in German, but this will be fixed before the workshop
 * the slides following are just a support for the story
-
-	</textarea>
-</section>
-
-<section data-markdown>
-	<textarea data-template>
-## Material referenced from the story
-
-https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
 
 	</textarea>
 </section>
@@ -374,7 +364,7 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 </textarea>
 </section>
 
-<section data-markdown lang="de" id="types-drift">
+<!-- <section data-markdown lang="de" id="types-drift">
 	<textarea data-template>
 ### Zusammenfassung: Arten von Drift
 
@@ -387,9 +377,80 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 <small>https://docs.seldon.io/projects/alibi-detect/en/stable/cd/background.html#what-is-drift
 </small>
 </textarea>
+</section> -->
+
+<section data-markdown lang="en" id="types-drift">
+  <textarea data-template>
+### Summary: Types of Drift
+
+* _Covariate / Input / Data drift_: Distribution of the input has changed
+* _Prior / Label / Prediction drift_: Distribution of the prediction has changed
+* _Concept / Model drift_: Relationship between input and prediction has changed
+
+<img src="https://docs.seldon.io/projects/alibi-detect/en/stable/_images/bg_2d_drift.png" style="height: 100%;">
+
+<small>https://docs.seldon.io/projects/alibi-detect/en/stable/cd/background.html#what-is-drift
+</small>
+</textarea>
 </section>
 
-<section data-markdown style="font-size: x-large;" lang="de" id="drift-interpretation">
+<!-- <section data-markdown class="fragments" lang="de">
+## Was kann man sonst noch monitoren?
+  
+* Qualität der Daten
+  * wie verändern sich fehlende oder falsche Felder
+  * Plausibilität
+* Daten Drift
+  * Verteilung der Eingabedaten
+* Prediction Drift   
+  * Was gibt das Modell aus?
+* Whenn man Ground Truth hat
+  * Metrik für die Qualität der Vorhersage wie beim Training verwendet
+  * Unterschiedliche typische Qualitäts-Metriken
+  * Vorsicht: jede noch so gute Metrik ist wieder nur ein Surrogat für die Qualität der Vorhersage 
+* Requests pro Minute/Stunde/Tag
+* User Feedback
+* Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
+
+  </section> -->
+  
+  <section data-markdown class="fragments" lang="en">
+## What else can be monitored?
+
+* Quality of the data
+  * how do missing or wrong fields change
+  <!-- * plausibility -->
+<!-- * Data Drift
+  * distribution of the input data -->
+<!-- * Prediction Drift
+  * What does the model output? -->
+* When you have Ground Truth
+  * Metric for the quality of the prediction as used in training
+  * Different typical quality metrics
+  * Caution: no matter how good the metric, it is again only a surrogate for the quality of the prediction
+* Requests per minute/hour/day
+* User Feedback
+* Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
+
+  </section>
+
+
+
+  <!-- <section data-markdown lang="de">
+  ## Datenqualität
+  
+  * Felder
+    * fehlen
+    * ungültig
+    * falsch / unplausibel / Wertebereich verlassen
+  * Features 
+    * konstante (die (meisten) Eingaben haben (fast) denselben Wert)
+    * leere
+    * fast leer
+    * Korrelationen zwischen Features
+  </section> -->
+    
+<!-- <section data-markdown style="font-size: x-large;" lang="de" id="drift-interpretation">
 	<textarea data-template>
 ## Drift erfordert Interpretation
 
@@ -403,9 +464,25 @@ Wenn die Welt sich ändert, ist Drift zu erwarten und damit ok
 |   |   |   |
 
 </textarea>
+</section> -->
+
+<section data-markdown style="font-size: x-large;" lang="en" id="drift-interpretation">
+  <textarea data-template>
+## Drift requires interpretation
+
+When the world changes, drift is to be expected and therefore ok
+
+|   | Positive interpretation, no action required  | Negative interpretation, action required  |
+|---|---|---|
+| *Data and Prediction Drift*  | important features have changed, model is fine and extrapolates well, e.g.: higher age, more risk  |  important features have changed, model does not extrapolate well |
+| *Data but no Prediction Drift*  | no important features changed, model is robust enough for the drift  | important features have changed, model does not extrapolate well |
+| *Prediction but no Data Drift*  | ???  | probably Concept Drift, new analysis of the situation necessary |
+|   |   |   |
+
+</textarea>
 </section>
 
-<section data-markdown lang="de" id="stats-test">
+<!-- <section data-markdown lang="de" id="stats-test">
 	<textarea data-template>
 ## Welcher Statistischer Test / welche Metrik?
 
@@ -424,8 +501,29 @@ es gibt leider nicht den einen passenden Test
 https://evidentlyai.com/blog/data-drift-detection-large-datasets
 </textarea>
 </section>
+ -->
+<section data-markdown lang="en" id="stats-test">
+  <textarea data-template>
+## Which statistical test / which metric?
 
-<section data-markdown lang="de" id="Wasserstein">
+there is unfortunately not the one suitable test
+
+* some only fit well for small (< 1000) data sets
+  * our data sets are larger than 1000
+* some can only work on numerical but not categorical data
+  * we need both
+* some are normalized between 0 and 1
+  * we don't care about that
+* our metrics
+  * Wasserstein metric for numerical data
+  * Jensen-Shannon distance for categorical data
+
+* Drift algorithm: https://docs.evidentlyai.com/reference/data-drift-algorithm  
+* When to use which metric: https://evidentlyai.com/blog/data-drift-detection-large-datasets
+</textarea>
+</section>
+
+<!-- <section data-markdown lang="de" id="Wasserstein">
 	<textarea data-template>
 ### Die Wasserstein-Metrik
 
@@ -441,20 +539,57 @@ Metrik die minimalen „Kosten“ der Umwandlung eines Haufens in den anderen._
 https://en.wikipedia.org/wiki/Wasserstein_metric
 </textarea>
 </section>
+ -->
+<section data-markdown lang="en" id="Wasserstein">
+  <textarea data-template>
+### Wasserstein Metric
 
-<section data-markdown lang="de" id="Jensen-Shannon">
+_If each distribution is considered as a pile of "earth" piled up on the metric space, then this metric describes the
+minimum "costs" of transforming one pile into the other._
+
+* not too sensitive, only shows larger changes
+* normalized in changes in standard deviations
+* can (obviously) go over 1
+* from 0.1 we assume a drift
+* only works for numerical data
+
+https://en.wikipedia.org/wiki/Wasserstein_metric
+</textarea>
+</section>
+
+
+<!-- <section data-markdown lang="de" id="Jensen-Shannon">
 	<textarea data-template>
 ### Jensen-Shannon Divergenz
 
-* Jensen-Shannon Distanz ist wie Wurzel aus der Divergenz, das ist unsere Metrik
+* Jensen-Shannon Distanz ist Wurzel aus der Divergenz, das ist unsere Metrik
 * zwischen 0 und 1
-* ab 0.1 gehen wir von einem Drift aus
+* ab 0.05 gehen wir von einem Drift aus
 * funktioniert auch für kategorische Daten
 * basiert auf Kullback–Leibler Divergenz, relative Entropie
 * Histogramme werden verglichen, Größe des Samples daher egal
 * Binning für kategorische Daten offensichtlich
 * Intuition: wie viel Information/Entropie/Überraschung steckt im Unterschied der beiden Verteilungen?
 
+
+https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence
+https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
+</textarea>
+</section>
+ -->
+
+<section data-markdown lang="en" id="Jensen-Shannon">
+  <textarea data-template>
+### Jensen-Shannon Divergence
+
+* Jensen-Shannon distance is square root of divergence, that is our metric
+* between 0 and 1
+* from 0.05 we assume a drift
+* also works for categorical data
+* based on Kullback–Leibler divergence, relative entropy
+* histograms are compared, size of the sample therefore doesn't matter
+* binning for categorical data obvious
+* Intuition: how much information/entropy/surprise is in the difference of the two distributions?
 
 https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence
 https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
@@ -475,42 +610,7 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
 ### What else / more material
 </section>
 
-<section data-markdown class="fragments" lang="de">
-## Was kann man sonst noch monitoren?
-  
-* Qualität der Daten
-  * wie verändern sich fehlende oder falsche Felder
-  * Plausibilität
-* Daten Drift
-  * Verteilung der Eingabedaten
-* Prediction Drift   
-  * Was gibt das Modell aus?
-* Whenn man Ground Truth hat
-  * Metrik für die Qualität der Vorhersage wie beim Training verwendet
-  * Unterschiedliche typische Qualitäts-Metriken
-  * Vorsicht: jede noch so gute Metrik ist wieder nur ein Surrogat für die Qualität der Vorhersage 
-* Requests pro Minute/Stunde/Tag
-* User Feedback
-* Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
-
-  </section>
-  
-  <section data-markdown lang="de">
-  ## Datenqualität
-  
-  * Felder
-    * fehlen
-    * ungültig
-    * falsch / unplausibel / Wertebereich verlassen
-  * Features 
-    * konstante (die (meisten) Eingaben haben (fast) denselben Wert)
-    * leere
-    * fast leer
-    * Korrelationen zwischen Features
-  </section>
-    
-  
-  <section data-markdown class="fragments"  lang="de">
+  <!-- <section data-markdown class="fragments"  lang="de">
     <textarea data-template>
   ### Was kann man sonst noch machen
   
@@ -523,15 +623,34 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
     * Solche Eingaben können erkannt und korrigiert werden
     * Dazu kann z.B. ein Autoencoder benutzt werden, der die Eingabe korrigiert
   
-  
+  <small>https://docs.seldon.io/projects/alibi-detect/en/stable/od/methods.html
+  <br>
+  https://docs.seldon.io/projects/alibi-detect/en/stable/ad/methods.html
+  </small>
+  </textarea>
+  </section> -->
+
+  <section data-markdown class="fragments"  lang="en">
+    <textarea data-template>
+  ### What else can be done
+
+  * Outlier detection
+    * Our model will not be able to extrapolate
+    * Values outside the training range will often be predicted with an unrealistically high certainty
+    * Outliers must be detected without ground truth
+  * Adversarial Detection
+    * Certain inputs can intentionally lead to a grossly wrong prediction
+    * Such inputs can be detected and corrected
+    * For this purpose, e.g. an autoencoder can be used, which corrects the input
+
   <small>https://docs.seldon.io/projects/alibi-detect/en/stable/od/methods.html
   <br>
   https://docs.seldon.io/projects/alibi-detect/en/stable/ad/methods.html
   </small>
   </textarea>
   </section>
-  
-  <section data-markdown class="fragments" lang="de">
+
+  <!-- <section data-markdown class="fragments" lang="de">
     <textarea data-template>
   ### Drift Detection für Bilder
   
@@ -542,7 +661,20 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
   * Ein komplettes Beispiel mit Alibi-Detect: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/alibi_detect_deploy.html#4.-Drift-detection-with-Kolmogorov-Smirnov
   * Anomalien in Bildern: https://29a.ch/photo-forensics
   </textarea>
+  </section> -->
+
+  <section data-markdown class="fragments" lang="en">
+    <textarea data-template>
+### Drift Detection for Images
+
+_Reduce image to typical aggregated properties_
+* Input Drift with histograms of low-level features (HSV): https://towardsdatascience.com/detecting-semantic-drift-within-image-data-6a59a0e768c6
+* Input Drift with dimension reduction: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_ks_cifar10.html
+* Model Drift by comparing with distilled model: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_distillation_cifar10.html
+* A complete example with Alibi-Detect: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/alibi_detect_deploy.html#4.-Drift-detection-with-Kolmogorov-Smirnov
+  </textarea>
   </section>
+
 
   <section data-markdown>
   <textarea data-template>
@@ -550,10 +682,11 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
 
 * https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_text_imdb.html
 * https://www.evidentlyai.com/blog/embedding-drift-detection
+* https://www.evidentlyai.com/blog/how-deepl-monitors-ml-models
 </textarea>
 </section>
 
-  <section data-markdown class="fragments" lang="de">
+  <!-- <section data-markdown class="fragments" lang="de">
     <textarea data-template>
   ### Wann liegt Ground Truth vor?
   
@@ -567,9 +700,27 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
     * bei Zeitreihen wird auf die nahe Zukunft vorhergesagt, sobald diese Eintritt kann überprüft werden
     * oft sind solche Realitäten erst nach einiger Zeit wahrnehmbar und unterliegen statistischen Schwankungen (wie bei uns)
   </textarea>
+  </section> -->
+
+  <section data-markdown class="fragments" lang="en">
+    <textarea data-template>
+### When do we have the Ground Truth?
+
+*Human experts can*
+* *determine ground truth*
+  * as soon as a human checks/revises the decisions
+  * for a proposal system this can be very fast
+  * for dark processing this should happen at regular intervals
+* *not determine ground truth*
+  * we have to wait for realities
+  * in time series, predictions are made for the near future, as soon as this occurs it can be checked
+  * often such realities are only perceptible after some time and are subject to statistical fluctuations (as in this example)
+  </textarea>
   </section>
   
-  <section data-markdown class="fragments" lang="de">
+
+
+  <!-- <section data-markdown class="fragments" lang="de">
     <textarea data-template>
   ### Unsere Vorhersage selbst erzeugt Drift
   
@@ -581,13 +732,34 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
   * Falls nicht (False Negative, Type II Fehler)
     * haben Menschen gelernt, unser System auszutricksen?
     * "Dann versichert eben meine Tochter den Wagen"
-  * Haben wir gute Fahrer aus verstehen nicht versichert (False Positive, Type I Fehler)
+  * Haben wir gute Fahrer aus Versehen nicht versichert (False Positive, Type I Fehler)
     * Möglichkeit: *epsilon-greedy* meistens der Vorhersage glauben, aber manchmal (epsilon) auch einen Fahrer mit schlechter Prognose versichern 
     * Vorhersage mit allen Wahrscheinlichkeiten geht in unsere Datenbank ein
   
   https://twitter.com/ChristophMolnar/status/1569644089724764160
   </textarea>
+  </section> -->
+
+  <section data-markdown class="fragments" lang="en">
+    <textarea data-template>
+### Our prediction itself creates drift
+
+* A deployment changes our role from observer to actor
+* We only insure people with a good risk forecast
+  * If not, why should we make a forecast at all?
+* Our GT will have more and more good drivers
+  * At least that is our hope (otherwise the forecast would not have worked)
+* If not (False Negative, Type II Error)
+  * have people learned to trick our system?
+  * "Then my daughter will insure the car"
+* Have we accidentally not insured good drivers (False Positive, Type I Error)
+  * Possibility: *epsilon-greedy* mostly believe the prediction, but sometimes (epsilon) also insure a driver with a bad forecast
+  * Prediction with all probabilities goes into our database
+
+  https://twitter.com/ChristophMolnar/status/1569644089724764160
+  </textarea>
   </section>
+
 
   <section data-markdown>
     <textarea data-template>
