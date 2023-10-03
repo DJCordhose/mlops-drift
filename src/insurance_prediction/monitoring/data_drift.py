@@ -32,8 +32,6 @@ column_mapping = ColumnMapping(
     target=None,
 )
 columns = column_mapping.categorical_features + column_mapping.numerical_features
-
-dataset_drift_metric = DatasetDriftMetric(columns=columns)
 drift_share = 0.5
 
 window: MutableSequence[RiskPredictionInput] = deque(maxlen=int(window_size))
