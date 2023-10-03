@@ -70,14 +70,14 @@
     * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/Wasserstein
     * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/Jensen-Shannon
   * https://www.evidentlyai.com/blog/data-drift-detection-large-datasets
-* **notebook** developing drift metrics: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb
+* **notebook** developing drift metrics: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb?hl=en
 * matching **code**: `src/insurance_prediction/monitoring/data_drift.py`
 
 
 ### What is actually going on: Analysis
 
 1. Looking at distributions: https://opendatascience.com/mlops-monitoring-and-managing-drift/
-1. **notebook** drift analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb
+1. **notebook** drift analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
 1. Interpretation: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/drift-interpretation
 1. In our case:
    1. People get older, but slowly (age)
@@ -90,7 +90,7 @@
 1. do nothing 
 1. Re-Train and re-engineer
    * https://www.evidentlyai.com/blog/retrain-or-not-retrain
-   * **notebook** validation, training, retraining, re-engineering: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb
+   * **notebook** validation, training, retraining, re-engineering: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
    1. option: we have new ground truth
       1. simulate new data with `month-12.csv.gz`
       1. validate old model with new data
