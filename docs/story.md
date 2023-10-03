@@ -128,12 +128,17 @@
 * Open Questions
 
 # Steps in Notebooks:
-1. Train Model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/1-train-6-retrain.ipynb?hl=en
-2. Validate Model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/2-5-validate.ipynb?hl=en
-3. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/3-drift.ipynb?hl=en
-4. Analyse Cause for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/4-analysis.ipynb?hl=en
-5. Validate old model with new data (fails): https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/2-5-validate.ipynb?hl=en
-6. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/1-train-6-retrain.ipynb?hl=en
-   * validation still fails
-7. Reengineer model and train with old or new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/7-reengineer.ipynb?hl=en
+1. Train: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain.ipynb?hl=en
+   * successfully validate model
+1. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb?hl=en
+1. Analyze Cause for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
+1. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain.ipynb?hl=en
+   * skip training 
+   * validation fails one 36 month, but also on 12 month
+1. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain.ipynb.ipynb?hl=en
+   * works okayish
+   * validation still fails on newer data
+1. Re-engineer model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train-validate-retrain?hl=en
+  * change feature set to avoid overfitting
+  * train with old or new data
   * validation still fails, might need to change required properties
