@@ -128,10 +128,12 @@
 * Open Questions
 
 # Steps in Notebooks:
-1. Train Model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/1-train-6-retrain?hl=en
+1. Train Model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/1-train-6-retrain.ipynb?hl=en
 2. Validate Model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/2-5-validate.ipynb?hl=en
 3. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/3-drift.ipynb?hl=en
 4. Analyse Cause for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/4-analysis.ipynb?hl=en
-5. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/2-5-validate.ipynb?hl=en
-6. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/1-train-6-retrain?hl=en
-7. Reengineer model and train with old and new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/7-reengineer?hl=en
+5. Validate old model with new data (fails): https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/2-5-validate.ipynb?hl=en
+6. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/1-train-6-retrain.ipynb?hl=en
+   * validation still fails
+7. Reengineer model and train with old or new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/7-reengineer.ipynb?hl=en
+  * validation still fails, might need to change required properties
