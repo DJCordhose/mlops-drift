@@ -84,8 +84,8 @@ Check the following services:
 1. create an environment for the project using the `venv`
    * `python3 -m venv .venv` and 
    * `source .venv/bin/activate`
-1. pip install poetry
-1. poetry install
+1. `pip install poetry`
+1. `poetry install`
 1. Start your preferred notebook server
    * you can just as well use what is built into your IDE, VSC works just fine
    * if you do not have one, just do: `jupyter notebook`
