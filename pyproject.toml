@@ -11,7 +11,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = ">=3.10, <3.11"
+python = ">=3.10, <3.12"
 tensorflow-cpu = { version = "2.12.0", markers = "platform_machine == 'x86_64' or platform_machine == 'amd64'" }
 tensorflow-aarch64 = { version = "2.12.0", markers = "platform_machine == 'aarch64'" }
 tensorflow-macos = { version = "2.12.0", markers = "platform_machine == 'arm64'" }
@@ -23,7 +23,6 @@ StrEnum = "0.4.10"
 pandas = "2.0.1"
 statsmodels = "0.13.5"
 seaborn = "0.12.2"
-lrcurve = "2.2.1"
 
 [tool.poetry.dev-dependencies]
 pylint = "2.17.3"
