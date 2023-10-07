@@ -81,10 +81,9 @@ Check the following services:
 
 ### Part II: local notebook installation
 
-1. create an environment for the project using your favorite environment manager
-   * using the `venv` it would look like this
-     * `python3 -m venv .venv` and 
-     * `source .venv/bin/activate`
+1. create an environment for the project using the `venv`
+   * `python3 -m venv .venv` and 
+   * `source .venv/bin/activate`
 1. pip install poetry
 1. poetry install
 1. Start your preferred notebook server
