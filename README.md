@@ -63,6 +63,7 @@ Only recommended when you have experience with Docker and Python build tools and
 - Linux, Mac or Windows installation with WSL2 (important)
 - curl
 - Working Docker 2 installation 
+- recent Python 3 installation
 
 ### Part I: Start monitoring servers using docker
 
@@ -81,10 +82,13 @@ Check the following services:
 ### Part II: local notebook installation
 
 1. create an environment for the project using your favorite environment manager
-   * if you don't have one, anaconda might be a good choice: `conda create --name mlops-drift --clone base` and `conda activate mlops-drift`
+   * using the `venv` it would look like this
+     * `python3 -m venv .venv` and 
+     * `source .venv/bin/activate`
 1. pip install poetry
 1. poetry install
 1. Start your preferred notebook server
+   * you can just as well use what is built into your IDE, VSC works just fine
    * if you do not have one, just do: `jupyter notebook`
 1. Run notebooks using your notebook server
    * Developing drift metrics: notebooks/drift.ipynb

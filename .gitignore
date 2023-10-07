@@ -2,3 +2,5 @@ classifier
 /output
 *:Zone.Identifier
 .ipynb_checkpoints
+.venv
+__pycache__

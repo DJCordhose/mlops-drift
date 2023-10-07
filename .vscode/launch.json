@@ -10,7 +10,7 @@
             "request": "launch",
             "module": "uvicorn",
             "env": {
-                "MODEL_PATH": "model.h5",
+                "MODEL_PATH": "./notebooks/classifier.h5",
                 "REFERENCE_PATH": "./datasets/insurance_prediction/reference.csv.gz",
             },
             "args": [
