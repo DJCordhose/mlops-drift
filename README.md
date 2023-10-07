@@ -47,7 +47,7 @@ The standard virtual machine might struggle a bit, but should still be able to r
 
 You might have to wait for a bit until docker has started all containers. Once ports are displayed in the lower right corner, the application has started. Click on the ports to open the overview view. Opening the application running on port 8080 should show the swagger interface on top of its API.
 
-__Note:__ This _should_ work in Github Codespaces (https://github.com/features/codespaces) just fine, but this has not been tested so far.
+__Note:__ Github Codespaces (https://github.com/features/codespaces) also works, but you need to execute `docker compose up` manually once the container has started. Only choose this option when you are familiar with Codespaces.
 
 ### Part II: Run Notebooks using Colab
 * Developing drift metrics: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb
