@@ -2,27 +2,27 @@
 <html lang="en">
 
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes">
 
-	<title>MLOps: Monitoring and Managing Drift</title>
+  <title>MLOps: Monitoring and Managing Drift</title>
 
-	<link rel="stylesheet" href="revealjs/reveal.js/dist/reset.css" />
-    <link rel="stylesheet" href="revealjs/reveal.js/dist/reveal.css" />
-    <link rel="stylesheet" href="revealjs/reveal.js/dist/theme/white.css" />
+  <link rel="stylesheet" href="revealjs/reveal.js/dist/reset.css" />
+  <link rel="stylesheet" href="revealjs/reveal.js/dist/reveal.css" />
+  <link rel="stylesheet" href="revealjs/reveal.js/dist/theme/white.css" />
 
-    <!-- Theme used for syntax highlighted code -->
-	<!-- <link rel="stylesheet" href="revealjs/reveal.js/plugin/highlight/monokai.css"> -->
-	<!-- <link rel="stylesheet" href="revealjs/reveal.js/plugin/highlight/zenburn.css"> -->
-    <link rel="stylesheet" href="revealjs/highlight-js-github-theme.css" />
-    <link rel="stylesheet" href="revealjs/styles.css" />
+  <!-- Theme used for syntax highlighted code -->
+  <!-- <link rel="stylesheet" href="revealjs/reveal.js/plugin/highlight/monokai.css"> -->
+  <!-- <link rel="stylesheet" href="revealjs/reveal.js/plugin/highlight/zenburn.css"> -->
+  <link rel="stylesheet" href="revealjs/highlight-js-github-theme.css" />
+  <link rel="stylesheet" href="revealjs/styles.css" />
 
 </head>
 
 <body style="background-color: whitesmoke;">
-	<div class="reveal">
-		<div class="slides">
-<!-- 
+  <div class="reveal">
+    <div class="slides">
+      <!-- 
 
 https://odsc.com/california/speakers/
 
@@ -51,7 +51,7 @@ All services will be provided as Docker images and can be run locally on your ma
 -->
 
 
-		<!-- <section data-markdown class="todo">
+      <!-- <section data-markdown class="todo">
 			<textarea data-template>
 ### Aufbau				
 
@@ -149,8 +149,8 @@ Lieber gemanagtes Environment nutzen
 
 
 
-<section data-markdown>
-    <textarea data-template>
+      <section data-markdown>
+        <textarea data-template>
 # MLOps: Monitoring and Managing Drift
 
 ODSC West 2023, https://odsc.com/speakers/mlops-monitoring-and-managing-drift/
@@ -165,38 +165,39 @@ These Slides: https://bit.ly/odsc-west-mlops
 Project: https://github.com/DJCordhose/mlops-drift
 <!-- https://djcordhose.github.io/mlops-drift/2023-odsc.html -->
 </textarea>
-</section>
+      </section>
 
-<section data-markdown class="fragments">
+      <section data-markdown class="fragments">
 ## What is Monitoring and Managing Drift all about?
 
-1. _MonitoringDrift_: You want to know that there might be a problem with the quality of your model _before_ 
-   1. your (internal or external) partners notice
-   1. your users notice
-   1. you lose trust
-   1. your business is impacted
-   1. you are in the news
+1. _MonitoringDrift_: You want to know that there might be a problem with the quality of your model _before_
+    1. your (internal or external) partners notice
+    1. your users notice
+    1. you lose trust
+    1. your business is impacted
+    1. you are in the news
 
 2. _Managing Drift_: Once noticed, you want to be able to react quickly and effectively
-   1. analyze if there is a problem in the first place
-   1. if so, what to do about it
-</section>
-  
-<section data-markdown>
+    1. analyze if there is a problem in the first place
+    1. if so, what to do about it
+      </section>
+
+      <section data-markdown>
 ## How to prepare
 
-* install the project as described in the readme: https://github.com/DJCordhose/mlops-drift/blob/main/README.md#installation
+* install the project as described in the readme:
+https://github.com/DJCordhose/mlops-drift/blob/main/README.md#installation
 
 * do not stress yourself, if you can not get this up and running
-  * there will be time for this in the workshop (even though not a lot)
-  * you can also just watch and learn,  you will get a lot of benefit even without running the code
-  * the second part should work entirely without a local installation
-  * when forming teams, it is sufficient to have one person with a working installation
-</section>
+* there will be time for this in the workshop (even though not a lot)
+* you can also just watch and learn, you will get a lot of benefit even without running the code
+* the second part should work entirely without a local installation
+* when forming teams, it is sufficient to have one person with a working installation
+      </section>
 
 
-<section data-markdown>
-    <textarea data-template>
+      <section data-markdown>
+        <textarea data-template>
 ## Who is Olli
 
 <div style="display: flex;">
@@ -214,31 +215,31 @@ Project: https://github.com/DJCordhose/mlops-drift
 Machine Learning Engineer/Architect from Hamburg, Germany
 </p>    
 </textarea>
-</section>
+      </section>
 
 
-<section data-markdown>
-	<textarea data-template>
+      <section data-markdown>
+        <textarea data-template>
 ## Wait, are these all the slides?
 
 * the story for this workshop is here: https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
 * the slides following are just a support for the story
 
 	</textarea>
-</section>
+      </section>
 
-<section data-markdown id="use-case">
-	<textarea data-template>
+      <section data-markdown id="use-case">
+        <textarea data-template>
 ### Use Case: Predict Risk 
 
 <img src="img/zine/use-case.png" style="height: 530px;" class="fragment">
 
 <small>Objective: Risk of potential customer as LOW, MEDIUM, HIGH</small>
 	</textarea>
-</section>
+      </section>
 
-<section data-markdown class="fragments" id="demo-request">
-  <textarea data-template>
+      <section data-markdown class="fragments" id="demo-request">
+        <textarea data-template>
 <img src="img/mlops/swagger-sample-request.jpg" style="height: 40vh;">
 
 *Result of example*
@@ -254,9 +255,9 @@ Machine Learning Engineer/Architect from Hamburg, Germany
 }
 ```
 </textarea>
-</section>
+      </section>
 
-<!-- <section data-markdown style="font-size: xx-large;" id="starting-point" lang="de">
+      <!-- <section data-markdown style="font-size: xx-large;" id="starting-point" lang="de">
   <textarea data-template>
 ## Unser Ausgangspunkt
 
@@ -273,8 +274,8 @@ https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebo
 </textarea>
 </section>   -->
 
-<section data-markdown style="font-size: xx-large;" id="starting-point" lang="en">
-  <textarea data-template>
+      <section data-markdown style="font-size: xx-large;" id="starting-point" lang="en">
+        <textarea data-template>
 ## Our starting point
 
 Notebooks are the classic tool for ML development:
@@ -287,32 +288,32 @@ https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebo
   * Test/validation on 300 data sets
 * Accuracy training/test > 85%
   </textarea>
-</section>
+      </section>
 
 
-<section data-markdown id="model-degrade">
-	<textarea data-template>
+      <section data-markdown id="model-degrade">
+        <textarea data-template>
 ### The quality of ML systems usually deteriorates over time
 
 <img src="img/zine/degrade.png" style="height: 530px;" class="fragment">
 
 <small>This is not only true for ML applications, but it is more obvious with them</small>
 </textarea>
-</section>
+      </section>
 
 
-<section data-markdown id="model-intervention">
-	<textarea data-template>
+      <section data-markdown id="model-intervention">
+        <textarea data-template>
 ### Updated models are necessary frequently
 
 <img src="img/zine/intervention.png" style="height: 530px;" class="fragment">
 
 <small>Machine Learning applications need maintenance</small>
 	</textarea>
-</section>
+      </section>
 
-<section data-markdown id="model-drift">
-	<textarea data-template>
+      <section data-markdown id="model-drift">
+        <textarea data-template>
 ### Without Ground Truth you need a surrogate metric
   
   <img src="img/zine/drift.png" style="height: 450px;" class="fragment">
@@ -320,38 +321,38 @@ https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebo
   
 *Distribution of data of requests or predictions differs significantly from that of training* 
   </textarea>
-  </section>
-  
+      </section>
 
-  <section data-markdown class="fragments" id="age-distribution">
-    <textarea data-template>
+
+      <section data-markdown class="fragments" id="age-distribution">
+        <textarea data-template>
   ### Distribution of Ages at the time of training
   
   <img src="img/causal-insurance/age-reference.png">
   
   </textarea>
-  </section>
-  
-  <section data-markdown class="fragments" id="age-drift-1">
-    <textarea data-template>
+      </section>
+
+      <section data-markdown class="fragments" id="age-drift-1">
+        <textarea data-template>
     ### does this drift? 
     
     <img src="img/causal-insurance/age_no_drift_p75_no_clue.png">
     
     </textarea>
-    </section>
-    
-    <section data-markdown class="fragments" id="age-drift-2">
-    <textarea data-template>
+      </section>
+
+      <section data-markdown class="fragments" id="age-drift-2">
+        <textarea data-template>
     ### and this? 
     
     <img src="img/causal-insurance/age_drift_p0_no_clue.png">
     
     </textarea>
-    </section>
+      </section>
 
-<section data-markdown id="monitoring-stack">
-	<textarea data-template>
+      <section data-markdown id="monitoring-stack">
+        <textarea data-template>
 ### Monitoring with Evidently, Prometheus und Grafana
 
 <img src="img/mlops/evidently_grafana_service.png">
@@ -362,9 +363,9 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 </small>
 
 </textarea>
-</section>
+      </section>
 
-<!-- <section data-markdown lang="de" id="types-drift">
+      <!-- <section data-markdown lang="de" id="types-drift">
 	<textarea data-template>
 ### Zusammenfassung: Arten von Drift
 
@@ -379,10 +380,14 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 </textarea>
 </section> -->
 
-<section data-markdown lang="en" id="types-drift">
-  <textarea data-template>
+      <section data-markdown lang="en" id="types-drift">
+        <textarea data-template>
 ### Summary: Types of Drift
 
+_Understanding the difference between data and concept drift is useful when interpreting the changes. However, to
+  detect them, we would typically use the same approach._
+  
+  
 * _Covariate / Input / Data drift_: Distribution of the input has changed
 * _Prior / Label / Prediction drift_: Distribution of the prediction has changed
 * _Concept / Model drift_: Relationship between input and prediction has changed
@@ -392,9 +397,11 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 <small>https://docs.seldon.io/projects/alibi-detect/en/stable/cd/background.html#what-is-drift
 </small>
 </textarea>
-</section>
+      </section>
 
-<!-- <section data-markdown class="fragments" lang="de">
+
+
+      <!-- <section data-markdown class="fragments" lang="de">
 ## Was kann man sonst noch monitoren?
   
 * Qualität der Daten
@@ -413,30 +420,33 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
 * Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
 
   </section> -->
-  
-  <section data-markdown class="fragments" lang="en">
+
+      <section data-markdown class="fragments" lang="en" style="font-size: x-large;">
 ## What else can be monitored?
 
 * Quality of the data
   * how do missing or wrong fields change
-  <!-- * plausibility -->
-<!-- * Data Drift
-  * distribution of the input data -->
-<!-- * Prediction Drift
-  * What does the model output? -->
+  * plausibility
+  <!-- * Data Drift
+* distribution of the input data -->
+  <!-- * Prediction Drift
+* What does the model output? -->
 * When you have Ground Truth
   * Metric for the quality of the prediction as used in training
   * Different typical quality metrics
   * Caution: no matter how good the metric, it is again only a surrogate for the quality of the prediction
 * Requests per minute/hour/day
+* Latency
+* Error Rate
 * User Feedback
-* Lastly, there is the business or product KPI: https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
+* Lastly, there is the business or product KPI:
+  https://www.evidentlyai.com/blog/ml-monitoring-metrics#4-business-metrics-and-kpi
 
-  </section>
+      </section>
 
 
 
-  <!-- <section data-markdown lang="de">
+      <!-- <section data-markdown lang="de">
   ## Datenqualität
   
   * Felder
@@ -449,8 +459,8 @@ https://docs.evidentlyai.com/integrations/evidently-and-grafana
     * fast leer
     * Korrelationen zwischen Features
   </section> -->
-    
-<!-- <section data-markdown style="font-size: x-large;" lang="de" id="drift-interpretation">
+
+      <!-- <section data-markdown style="font-size: x-large;" lang="de" id="drift-interpretation">
 	<textarea data-template>
 ## Drift erfordert Interpretation
 
@@ -466,8 +476,8 @@ Wenn die Welt sich ändert, ist Drift zu erwarten und damit ok
 </textarea>
 </section> -->
 
-<section data-markdown style="font-size: x-large;" lang="en" id="drift-interpretation">
-  <textarea data-template>
+      <section data-markdown style="font-size: x-large;" lang="en" id="drift-interpretation">
+        <textarea data-template>
 ## Drift requires interpretation
 
 When the world changes, drift is to be expected and therefore ok
@@ -480,9 +490,9 @@ When the world changes, drift is to be expected and therefore ok
 |   |   |   |
 
 </textarea>
-</section>
+      </section>
 
-<!-- <section data-markdown lang="de" id="stats-test">
+      <!-- <section data-markdown lang="de" id="stats-test">
 	<textarea data-template>
 ## Welcher Statistischer Test / welche Metrik?
 
@@ -502,8 +512,8 @@ https://evidentlyai.com/blog/data-drift-detection-large-datasets
 </textarea>
 </section>
  -->
-<section data-markdown lang="en" id="stats-test">
-  <textarea data-template>
+      <section data-markdown lang="en" id="stats-test">
+        <textarea data-template>
 ## Which statistical test / which metric?
 
 there is unfortunately not the one suitable test
@@ -521,9 +531,9 @@ there is unfortunately not the one suitable test
 * Drift algorithm: https://docs.evidentlyai.com/reference/data-drift-algorithm  
 * When to use which metric: https://evidentlyai.com/blog/data-drift-detection-large-datasets
 </textarea>
-</section>
+      </section>
 
-<!-- <section data-markdown lang="de" id="Wasserstein">
+      <!-- <section data-markdown lang="de" id="Wasserstein">
 	<textarea data-template>
 ### Die Wasserstein-Metrik
 
@@ -540,8 +550,8 @@ https://en.wikipedia.org/wiki/Wasserstein_metric
 </textarea>
 </section>
  -->
-<section data-markdown lang="en" id="Wasserstein">
-  <textarea data-template>
+      <section data-markdown lang="en" id="Wasserstein">
+        <textarea data-template>
 ### Wasserstein Metric
 
 _If each distribution is considered as a pile of "earth" piled up on the metric space, then this metric describes the
@@ -555,10 +565,10 @@ minimum "costs" of transforming one pile into the other._
 
 https://en.wikipedia.org/wiki/Wasserstein_metric
 </textarea>
-</section>
+      </section>
 
 
-<!-- <section data-markdown lang="de" id="Jensen-Shannon">
+      <!-- <section data-markdown lang="de" id="Jensen-Shannon">
 	<textarea data-template>
 ### Jensen-Shannon Divergenz
 
@@ -578,8 +588,8 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
 </section>
  -->
 
-<section data-markdown lang="en" id="Jensen-Shannon">
-  <textarea data-template>
+      <section data-markdown lang="en" id="Jensen-Shannon">
+        <textarea data-template>
 ### Jensen-Shannon Divergence
 
 * Jensen-Shannon distance is square root of divergence, that is our metric
@@ -594,23 +604,23 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
 https://en.wikipedia.org/wiki/Jensen%E2%80%93Shannon_divergence
 https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
 </textarea>
-</section>
+      </section>
 
-<section data-markdown id="ml-system">
-	<textarea data-template>
+      <section data-markdown id="ml-system">
+        <textarea data-template>
 ### A ML model does not go into production all by itself
 
 <img src="img/ml-system-postits.jpg" style="height: 550px;">
 
 </textarea>
-</section>
+      </section>
 
 
-<section data-markdown id="what-else">
-### What else / more material
-</section>
+      <section data-markdown id="what-else">
+        ### What else / more material
+      </section>
 
-  <!-- <section data-markdown class="fragments"  lang="de">
+      <!-- <section data-markdown class="fragments"  lang="de">
     <textarea data-template>
   ### Was kann man sonst noch machen
   
@@ -630,8 +640,8 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
   </textarea>
   </section> -->
 
-  <section data-markdown class="fragments"  lang="en">
-    <textarea data-template>
+      <section data-markdown class="fragments" lang="en">
+        <textarea data-template>
   ### What else can be done
 
   * Outlier detection
@@ -648,9 +658,9 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
   https://docs.seldon.io/projects/alibi-detect/en/stable/ad/methods.html
   </small>
   </textarea>
-  </section>
+      </section>
 
-  <!-- <section data-markdown class="fragments" lang="de">
+      <!-- <section data-markdown class="fragments" lang="de">
     <textarea data-template>
   ### Drift Detection für Bilder
   
@@ -663,8 +673,8 @@ https://en.wikipedia.org/wiki/Kullback%E2%80%93Leibler_divergence
   </textarea>
   </section> -->
 
-  <section data-markdown class="fragments" lang="en">
-    <textarea data-template>
+      <section data-markdown class="fragments" lang="en">
+        <textarea data-template>
 ### Drift Detection for Images
 
 _Reduce image to typical aggregated properties_
@@ -673,20 +683,43 @@ _Reduce image to typical aggregated properties_
 * Model Drift by comparing with distilled model: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_distillation_cifar10.html
 * A complete example with Alibi-Detect: https://docs.seldon.io/projects/alibi-detect/en/stable/examples/alibi_detect_deploy.html#4.-Drift-detection-with-Kolmogorov-Smirnov
   </textarea>
-  </section>
+      </section>
 
 
-  <section data-markdown>
-  <textarea data-template>
+      <section data-markdown class="fragments">
+        <textarea data-template>
 ### Drift Detection for Text
 
+1. Text Descriptors Drift: compare the descriptive statistics of the text data, e.g. 
+   1. length of text
+   1. share of out-of-vocabulary words
+   1. share of non-letter symbols
+1. Domain Classifier / model-based drift detection 
+   * If a model can reliably identify the reviews that belong to the current or reference dataset, the two datasets are probably sufficiently different.
+   * Failing Loudly: An Empirical Study of Methods for Detecting Dataset Shift: https://arxiv.org/abs/1810.11953
+   * can be applied to all kinds of data (including images)
+1. Based on differences (eucledian, cosine, etc.) of averages of embeddings  
+
+</textarea>
+      </section>
+
+      <section data-markdown>
+        <textarea data-template>
+### Drift Detection for Text - Links
+
 * https://docs.seldon.io/projects/alibi-detect/en/stable/examples/cd_text_imdb.html
+* https://www.evidentlyai.com/blog/unstructured-data-monitoring
 * https://www.evidentlyai.com/blog/embedding-drift-detection
 * https://www.evidentlyai.com/blog/how-deepl-monitors-ml-models
+* https://www.evidentlyai.com/blog/tutorial-detecting-drift-in-text-data
+  * https://archive.ics.uci.edu/dataset/462/drug+review+dataset+drugs+com
+  * https://colab.research.google.com/drive/10RBYBM5phCckMNZ0QRnOOcx4YyAou9uP
+* https://www.evidentlyai.com/blog/evidently-data-quality-monitoring-and-drift-detection-for-text-data
 </textarea>
-</section>
+      </section>
 
-  <!-- <section data-markdown class="fragments" lang="de">
+
+      <!-- <section data-markdown class="fragments" lang="de">
     <textarea data-template>
   ### Wann liegt Ground Truth vor?
   
@@ -702,8 +735,8 @@ _Reduce image to typical aggregated properties_
   </textarea>
   </section> -->
 
-  <section data-markdown class="fragments" lang="en">
-    <textarea data-template>
+      <section data-markdown class="fragments" lang="en">
+        <textarea data-template>
 ### When do we have the Ground Truth?
 
 *Human experts can*
@@ -716,11 +749,11 @@ _Reduce image to typical aggregated properties_
   * in time series, predictions are made for the near future, as soon as this occurs it can be checked
   * often such realities are only perceptible after some time and are subject to statistical fluctuations (as in this example)
   </textarea>
-  </section>
-  
+      </section>
 
 
-  <!-- <section data-markdown class="fragments" lang="de">
+
+      <!-- <section data-markdown class="fragments" lang="de">
     <textarea data-template>
   ### Unsere Vorhersage selbst erzeugt Drift
   
@@ -740,8 +773,8 @@ _Reduce image to typical aggregated properties_
   </textarea>
   </section> -->
 
-  <section data-markdown class="fragments" lang="en">
-    <textarea data-template>
+      <section data-markdown class="fragments" lang="en">
+        <textarea data-template>
 ### Our prediction itself creates drift
 
 * A deployment changes our role from observer to actor
@@ -758,40 +791,40 @@ _Reduce image to typical aggregated properties_
 
   https://twitter.com/ChristophMolnar/status/1569644089724764160
   </textarea>
-  </section>
+      </section>
 
 
-  <section data-markdown>
-    <textarea data-template>
+      <section data-markdown>
+        <textarea data-template>
 ### Google Rubric Score
 * https://developers.google.com/machine-learning/guides/rules-of-ml
 * https://research.google/pubs/pub46555/
 * https://research.google/pubs/pub45742/
 * https://laszlo.substack.com/p/article-review-the-ml-test-score
     </textarea>
-    </section>
+      </section>
 
-<section data-markdown>
-	<textarea data-template>
+      <section data-markdown>
+        <textarea data-template>
 ### Challenges in Machine Learning Projects
 
 <img src="img/biggest_challenges_ML_MLCon_2023.jpg" style="height: 530px;" class="fragment">
 
 <small>Survey MLConf Berlin 2023</small>
 	</textarea>
-</section>
+      </section>
 
 
-<section data-markdown>
-	<textarea data-template>
+      <section data-markdown>
+        <textarea data-template>
   ### Machine Learning Projecs can be thought as running in phases
   
   <img src='img/ml-phases-small-en.jpg' style="height: 100%;">
   
   </textarea>
-</section>
-    
-<!--
+      </section>
+
+      <!--
 
 <section data-markdown class="preparation">
 	<textarea data-template>
@@ -890,7 +923,7 @@ We have all skills coming together for this kind of work:
 </textarea>
 </section> -->
 
-<!-- <section data-markdown>
+      <!-- <section data-markdown>
 	<textarea data-template>
 ### MLOps - komplettes Zine
 
@@ -901,7 +934,7 @@ We have all skills coming together for this kind of work:
 </section>
  -->
 
- <!-- 
+      <!-- 
 
   <section data-markdown>
     <textarea data-template>
@@ -947,13 +980,13 @@ We have all skills coming together for this kind of work:
   
      -->
 
-		</div>
-	</div>
-	<script src="revealjs/reveal.js/dist/reveal.js"></script>
-	<script src="revealjs/reveal.js/plugin/notes/notes.js"></script>
-	<script src="revealjs/reveal.js/plugin/markdown/markdown.js"></script>
-	<script src="revealjs/reveal.js/plugin/highlight/highlight.js"></script>
-	<script src="revealjs/config.js"></script>
+    </div>
+  </div>
+  <script src="revealjs/reveal.js/dist/reveal.js"></script>
+  <script src="revealjs/reveal.js/plugin/notes/notes.js"></script>
+  <script src="revealjs/reveal.js/plugin/markdown/markdown.js"></script>
+  <script src="revealjs/reveal.js/plugin/highlight/highlight.js"></script>
+  <script src="revealjs/config.js"></script>
 
 </body>
 

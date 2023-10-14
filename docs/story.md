@@ -164,6 +164,8 @@ Choose depending on previous knowledge and your preferences:
 
 ## Optional Parts
 1. alternative Architectures
+   * https://www.evidentlyai.com/blog/fastapi-tutorial#1-solution-architecture-2
+   * https://www.evidentlyai.com/blog/fastapi-tutorial#add-an-orchestrator-2
 1. roles and responsibilities
 1. More Material: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/what-else
 
