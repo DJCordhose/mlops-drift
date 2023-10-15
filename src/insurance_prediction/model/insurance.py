@@ -21,7 +21,7 @@ class _InsuranceModel(InsurancePredictor):
         self.model = tf.keras.models.load_model(model_path)
 
     def can_predict(self, prediction_input: RiskPredictionInput) -> bool:
-        in_range = prediction_input.driver.age in self.age_range and prediction_input.vehicle.power in self.power_range
+        in_range = prediction_input.driver.age in self.age_range and int(prediction_input.vehicle.power) in self.power_range
         if not in_range:
             _InsuranceModel.logger.warning('Input out of range for ML model - falling back to baseline model')
         return in_range
@@ -42,7 +42,7 @@ class _InsuranceModel(InsurancePredictor):
         result = self.model.predict(model_input, verbose=0)[0]
 
         if result.max() < self.min_probability_threshold:
-            _InsuranceModel.logger.warning('ML model probability %.2f too low - \falling back to baseline model', result.max())
+            _InsuranceModel.logger.warning('ML model confidence %.2f too low - falling back to baseline model', result.max())
             raise InfeasiblePredictionError(f'Result of model is not confident enough, as it is below {self.min_probability_threshold}')
 
         return Prediction(
