@@ -71,7 +71,7 @@ Choose depending on previous knowledge and your preferences:
    1. we simulate production use
       * three years worth of production data
       * 1500 each month
-      * `./scripts/curl-drift.sh <URL app server>`
+      * `./scripts/curl-drift-mock.sh <URL app server>`
 
 
 ## Part II
