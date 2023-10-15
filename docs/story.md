@@ -71,7 +71,8 @@ Choose depending on previous knowledge and your preferences:
    1. we simulate production use
       * three years worth of production data
       * 1500 each month
-      * `./scripts/curl-drift-mock.sh <URL app server>`
+      * fast, but predictions are mocked`./scripts/curl-drift-mock.sh <URL app server>`
+      * much slower, but we can monitor prediction drift as well `./scripts/curl-drift-prediction.sh <URL app server>`
 
 
 ## Part II
@@ -168,5 +169,6 @@ Choose depending on previous knowledge and your preferences:
    * https://www.evidentlyai.com/blog/fastapi-tutorial#add-an-orchestrator-2
 1. roles and responsibilities
 1. More Material: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/what-else
-
-
+1. Create a Grafana Panel for 
+   * `fallback_rate` - what would be a good threshold for an alarm?
+   * `requests_in_windows` - only if we can come up with any reasonable use for it
