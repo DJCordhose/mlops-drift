@@ -21,7 +21,7 @@ class _InsuranceModel(InsurancePredictor):
         self.model = tf.keras.models.load_model(model_path)
 
     def can_predict(self, prediction_input: RiskPredictionInput) -> bool:
-        in_range = prediction_input.driver.age in self.age_range and int(prediction_input.vehicle.power) in self.power_range
+        in_range = int(prediction_input.driver.age) in self.age_range and int(prediction_input.vehicle.power) in self.power_range
         if not in_range:
             _InsuranceModel.logger.warning('Input out of range for ML model - falling back to baseline model')
         return in_range
