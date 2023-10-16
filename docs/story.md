@@ -172,3 +172,10 @@ Choose depending on previous knowledge and your preferences:
 1. Create a Grafana Panel for 
    * `fallback_rate` - what would be a good threshold for an alarm?
    * `requests_in_windows` - only if we can come up with any reasonable use for it
+  
+## Learn more from Evidently
+* ML observabilty course: https://learn.evidentlyai.com/
+* Tutorials
+  * https://www.evidentlyai.com/blog/fastapi-tutorial
+  * https://www.evidentlyai.com/blog/batch-ml-monitoring-architecture
+
