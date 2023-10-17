@@ -141,10 +141,12 @@ Choose depending on previous knowledge and your preferences:
 ## Steps in Notebooks:
 1. Train: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
    * successfully validate model
+   * deploy
+   * use
 1. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb?hl=en
 1. Analyze Cause for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
 1. Two options: do we have new training data  with valid ground truth 
-1. Option I - we have _new data_
+1. Option I - we have _new data with new ground truth_
    1. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
       * skip training 
       * validation fails one 36 month, but also on 12 month
@@ -155,7 +157,7 @@ Choose depending on previous knowledge and your preferences:
       * change feature set to avoid overfitting
       * train with new data
       * validation still fails, might need to change required properties
-1. Option II - we have _no new data_
+1. Option II - we have _no new data with new ground truth_
    1. Re-engineer model: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
       * change feature set to avoid overfitting
       * train with old data
