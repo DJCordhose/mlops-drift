@@ -13,7 +13,6 @@
 
 
 ## How you can benefit
-
 There is a lot of material to be covered, so there will be limited time to try things completely one your own.
 
 There are different modes of participation, you will benefit from all of them. 
@@ -181,3 +180,7 @@ Choose depending on previous knowledge and your preferences:
   * https://www.evidentlyai.com/blog/fastapi-tutorial
   * https://www.evidentlyai.com/blog/batch-ml-monitoring-architecture
 
+
+## Flow Overview
+
+ ![Alt text](flow-overview.jpg)
