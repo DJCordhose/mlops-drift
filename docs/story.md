@@ -149,7 +149,7 @@ Choose depending on previous knowledge and your preferences:
 1. Option I - we have _new data with new ground truth_
    1. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
       * skip training 
-      * validation fails one 36 month, but also on 12 month
+      * validation fails on month 36, but also on month 12
    1. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
       * works okayish
       * validation still fails on newer data
