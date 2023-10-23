@@ -28,7 +28,7 @@ _Please have the installation ready and checked before the workshop. Should you 
 
 _Should you really have issues, don't panic: we only need one working installation per team, so you can share and installation and work together with a colleague._
 
-## Instalation in the Cloud
+## Installation in the Cloud
 
 Recommended for most users. 
 
