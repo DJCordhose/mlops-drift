@@ -24,6 +24,10 @@ Choose depending on previous knowledge and your preferences:
    1. Do what Olli does in sync
    1. Fork at any point and make your own experiments, you are welcome to give a report of what you learned
 
+## Flow Overview
+
+ ![Alt text](flow-overview.jpg)
+
 ## Part I
 
 **Working on the bigger picture**
@@ -131,6 +135,9 @@ Choose depending on previous knowledge and your preferences:
 
 ## Wrap Up
 * Revisit all monitoring parts using birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
+
+ ![Alt text](flow-overview.jpg)
+
 * Revisit all steps in notebooks
 * Link to material
 * Keep in Contact, email, linkedIn
@@ -179,8 +186,3 @@ Choose depending on previous knowledge and your preferences:
 * Tutorials
   * https://www.evidentlyai.com/blog/fastapi-tutorial
   * https://www.evidentlyai.com/blog/batch-ml-monitoring-architecture
-
-
-## Flow Overview
-
- ![Alt text](flow-overview.jpg)
