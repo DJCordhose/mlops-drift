@@ -149,13 +149,20 @@ Lieber gemanagtes Environment nutzen
 
 <section data-markdown class="preparation">
 # Meine Vorbereitung
-* Alle Services laufen haben
+
+* Alle Services lokal laufen haben
+  * http://localhost:8080
+  * http://localhost:8080/metrics/
+  * http://localhost:9090/graph?g0.expr=drift_score_by_columns&g0.tab=1&g0.stacked=0&g0.show_exemplars=0&g0.range_input=1h
+  * http://localhost:3000
+* Gitpod als Fallback offen haben  
 * Localhost braucht Internet, das schon öffnen
 * Als roter Faden: https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
 * Als Überblick die Grafik in Whiteboard öffnen um darauf zeichnen zu können
   * Zeigen wo wir sind und mit Highlighter markieren
 * Wie lange dauert das?
-  `./scripts/curl-drift-prediction.sh http://localhost:8080`  
+  * `./scripts/curl-drift-prediction.sh http://localhost:8080`
+  * `./scripts/curl-drift-mock.sh http://localhost:8080`  
 </section>
 
 
