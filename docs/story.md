@@ -107,7 +107,9 @@ Choose depending on previous knowledge and your preferences:
 
 1. Looking at distributions: https://opendatascience.com/mlops-monitoring-and-managing-drift/
 1. **notebook** drift analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
-1. **hands-on** if time permits: explore yourself - what is most helpful to yourself?
+1. **hands-on** if time permits: explore for yourself
+  - what is most helpful?
+  - what are your insights
 1. Interpretation: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/drift-interpretation
 1. In our case:
    1. People get older, but slowly (age)
@@ -125,14 +127,24 @@ Choose depending on previous knowledge and your preferences:
       1. simulate new data with `month-12.csv.gz`
       1. validate old model with new data
       1. if performance is worse: retrain
-      1. it is: retrain
-      1. new model does not longer hold wanted (quality) invariants
-      1. decide what to do about it
-   1. no ground truth
+      1. does the new model hold required (quality) invariants
+      1. if not: decide what to do about it
+      1. consider re-engineering, pros/cons?
+   1. option: no ground truth
       * we can only retrain using old data
       * only makes sense with re-engineering
       * remove feature that is showing drift
       * re-weight, up/down-sample training data
+1. **hands-on** if time permits: explore for yourself
+   - run the notebook as is: this recreates the initial training
+   - try out at least one option
+     - play with `use_new_data` in training and validation
+     - use different iterations between month 12 and 36 both for training and test 
+     - re-engineer, e.g. by removing features that no longer make a lot of sense as already prepared in the notebook
+     - let this be based on the analysis we did before
+     - when removing features does the performance of the model degrade?
+     - what about the distribution of the target?
+   - what measure would you suggest? should we challenge the invariants?
 1. fall back
    * a machine learning model does not work all by itself: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/ml-system
      * request showing more than one model does its work
