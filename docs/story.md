@@ -41,7 +41,7 @@ Choose depending on previous knowledge and your preferences:
 1. Basics of our model
    * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/starting-point
    * dataset represents one month of data  
-   * identifying invariants of the model
+   * identifying invariants of the model as described in notebook 
 
 ### Motivation/Issue   
 1. Could be end of the story, 
@@ -79,6 +79,7 @@ Choose depending on previous knowledge and your preferences:
       * 1500 each month
       * fast, but predictions are mocked: `./scripts/curl-drift-mock.sh <URL app server>`
       * much slower, but we can monitor prediction drift as well: `./scripts/curl-drift-prediction.sh <URL app server>`
+      * watch the drift unfold in looking at the Grafana dashboard 
 
 
 ## Part II
