@@ -107,6 +107,7 @@ Choose depending on previous knowledge and your preferences:
 
 1. Looking at distributions: https://opendatascience.com/mlops-monitoring-and-managing-drift/
 1. **notebook** drift analysis: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
+1. **hands-on** if time permits: explore yourself - what is most helpful to yourself?
 1. Interpretation: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/drift-interpretation
 1. In our case:
    1. People get older, but slowly (age)
