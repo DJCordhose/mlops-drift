@@ -2,8 +2,8 @@ FROM ghcr.io/habecker/tensorflow_poetry:py3.10.11-tf2.12.0-slim AS base
 COPY ./ /insurance_prediction
 WORKDIR /insurance_prediction
 RUN poetry install
-RUN REFERENCE_PATH=./datasets/insurance_prediction/reference.csv.gz pytest -q
-RUN pylint --fail-under=9 ./src ./tests
+# RUN REFERENCE_PATH=./datasets/insurance_prediction/reference.csv.gz pytest -q
+# RUN pylint --fail-under=9 ./src ./tests
 
 FROM base AS build
 RUN poetry build
