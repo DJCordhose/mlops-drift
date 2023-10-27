@@ -24,7 +24,12 @@ Choose depending on previous knowledge and your preferences:
    1. Do what Olli does in sync
    1. Fork at any point and make your own experiments, you are welcome to give a report of what you learned
 
-## Flow Overview
+## Machine Learning Overview
+
+ ![Alt text](img/ml-phases-en.jpg)
+
+
+## Engineering Flow
 
  ![Alt text](flow-overview.jpg)
 
@@ -84,7 +89,7 @@ Choose depending on previous knowledge and your preferences:
 
 ## Part II
 
-**Working on the bigger picture**
+**Looking into the details**
 
 ### How did we do the actual monitoring: Introducing Evidently
 
