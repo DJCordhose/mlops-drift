@@ -65,17 +65,20 @@ Choose depending on previous knowledge and your preferences:
    1. looking at the services one by one:
       * birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
      1. Visualization of drift in Grafana
-     1. But: where does the drift data come from? 
+        * http://localhost:3000/d/U54hsxv7k/evidently-data-drift-dashboard?orgId=1&refresh=5s
+     1. But: where does the drift data come from?
      1. Prometheus as a data source
+        * http://localhost:9090
         * search for drift
      1. But: how does it get into the ts database?
-     1. monitoring server     
+     1. monitoring server
+        * http://localhost:8080/metrics/
      * birds eye view again: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
    1. we simulate production use
       * three years worth of production data
       * 1500 each month
-      * fast, but predictions are mocked`./scripts/curl-drift-mock.sh <URL app server>`
-      * much slower, but we can monitor prediction drift as well `./scripts/curl-drift-prediction.sh <URL app server>`
+      * fast, but predictions are mocked: `./scripts/curl-drift-mock.sh <URL app server>`
+      * much slower, but we can monitor prediction drift as well: `./scripts/curl-drift-prediction.sh <URL app server>`
 
 
 ## Part II
