@@ -20,6 +20,8 @@ your machine learning models in a real-world production environment.
 
 # Installation
 
+**Caution: due to recent incompatibilities for the time being only the cloud installation is working**
+
 You can choose between two ways of installation. You can either install
 * locally: requires Docker and Poetry (or at least pip)
 * using the cloud: requires accounts for Google Colab and Gitpod
