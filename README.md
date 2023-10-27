@@ -86,9 +86,9 @@ Check the following services:
    * `source .venv/bin/activate`
 1. `pip install poetry`
 1. `poetry install`
-1. Start your preferred notebook server
-   * you can just as well use what is built into your IDE, VSC works just fine
-   * if you do not have one, just do: `jupyter notebook`
+1. Start juypter notebook server
+   * `jupyter notebook`
+   * servers build into your IDE might see issues displaying evidently reports
 1. Run notebooks using your notebook server
    * Developing drift metrics: notebooks/drift.ipynb
    * Analysis: notebooks/analysis.ipynb

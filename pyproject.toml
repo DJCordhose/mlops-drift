@@ -33,6 +33,7 @@ httpx = "0.24.0"
 
 [tool.poetry.group.dev.dependencies]
 ipykernel = "^6.25.2"
+jupyter = "^1.0.0"
 
 [build-system]
 requires = ["poetry-core"]
