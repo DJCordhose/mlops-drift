@@ -205,6 +205,12 @@ Choose depending on previous knowledge and your preferences:
 1. Create a Grafana Panel for 
    * `fallback_rate` - what would be a good threshold for an alarm?
    * `requests_in_windows` - only if we can come up with any reasonable use for it
+1. Reconsider modelling
+   * shouldn't the target rather be binary?
+   * rather than using rules to decide the model should be used at all consider second binary model trained on
+     * density of training samples in given location
+     * add amount of money lost?
+1.            
   
 ## Learn more from Evidently
 * ML observabilty course: https://learn.evidentlyai.com/
