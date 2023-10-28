@@ -156,13 +156,18 @@ Choose depending on previous knowledge and your preferences:
 
 
 ## Wrap Up
-* Revisit all monitoring parts using birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
-
- ![Alt text](flow-overview.jpg)
-
+* Revisit all parts using birds eye views:
+  * ML Phases (at the beginning of document)
+  * https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
+  * Overview of model flow in production (at the beginning of document)
 * Revisit all steps in notebooks
 * Link to material
-* Keep in Contact, email, linkedIn
+  * slides: https://bit.ly/odsc-west-mlops
+  * this story: https://github.com/DJCordhose/mlops-drift/blob/main/docs/story.md
+  * complete sources: https://github.com/DJCordhose/mlops-drift
+* Keep in contact, email, linkedIn
+  * oliver@zeigermann.de
+  * https://www.linkedin.com/in/oliver-zeigermann-34989773/
 * Feedback
   * What brought value?
   * What did not?
@@ -176,10 +181,10 @@ Choose depending on previous knowledge and your preferences:
    * use
 1. Monitor Data for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/drift.ipynb?hl=en
 1. Analyze Cause for Drift: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/analysis.ipynb?hl=en
-1. Two options: do we have new training data  with valid ground truth 
+1. Two options: do we have new training data with valid ground truth 
 1. Option I - we have _new data with new ground truth_
    1. Validate old model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
-      * skip training 
+      * skip training
       * validation fails on month 36, but also on month 12
    1. Retrain model with new data: https://colab.research.google.com/github/djcordhose/mlops-drift/blob/main/notebooks/train.ipynb?hl=en
       * works okayish
@@ -196,7 +201,7 @@ Choose depending on previous knowledge and your preferences:
 1. Consider using a fallback
    * at least temporarily and/or partially
 
-## Optional Parts
+## What else?
 1. alternative Architectures
    * https://www.evidentlyai.com/blog/fastapi-tutorial#1-solution-architecture-2
    * https://www.evidentlyai.com/blog/fastapi-tutorial#add-an-orchestrator-2
@@ -210,10 +215,8 @@ Choose depending on previous knowledge and your preferences:
    * rather than using rules to decide the model should be used at all consider second binary model trained on
      * density of training samples in given location
      * add amount of money lost?
-1.            
-  
-## Learn more from Evidently
-* ML observabilty course: https://learn.evidentlyai.com/
-* Tutorials
-  * https://www.evidentlyai.com/blog/fastapi-tutorial
-  * https://www.evidentlyai.com/blog/batch-ml-monitoring-architecture
+1. Learn more from Evidently
+   * ML observabilty course: https://learn.evidentlyai.com/
+   * Tutorials
+     * https://www.evidentlyai.com/blog/fastapi-tutorial
+     * https://www.evidentlyai.com/blog/batch-ml-monitoring-architecture
