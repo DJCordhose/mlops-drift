@@ -164,6 +164,9 @@ Choose depending on previous knowledge and your preferences:
 * Link to material
 * Keep in Contact, email, linkedIn
 * Feedback
+  * What brought value?
+  * What did not?
+  * What should be changed? 
 * Open Questions
 
 ## Steps in Notebooks:
