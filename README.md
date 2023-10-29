@@ -37,7 +37,7 @@ Recommended for most users.
 ### Prerequisites
 - Recent version of a modern browser (like Chrome)
 - Google Account (for Colab)
-- Gitpod Account
+- Github / Gitpod Account
 
 ### Part I: Start monitoring servers using Gitpod
 
