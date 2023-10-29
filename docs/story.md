@@ -24,15 +24,6 @@ Choose depending on previous knowledge and your preferences:
    1. Do what Olli does in sync
    1. Fork at any point and make your own experiments, you are welcome to give a report of what you learned
 
-## Machine Learning Overview
-
- ![Alt text](img/ml-phases-en.jpg)
-
-
-## Engineering Flow
-
- ![Alt text](flow-overview.jpg)
-
 ## Part I
 
 **Working on the bigger picture**
@@ -52,6 +43,16 @@ Choose depending on previous knowledge and your preferences:
 1. Could be end of the story, 
 1. but: models degenerate: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-degrade
 1. intervention might be necessary: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-intervention
+
+#### Engineering Flow
+
+ ![Alt text](img/ml-phases-en.jpg)
+
+
+#### The bigger picture
+
+ ![Alt text](flow-overview.jpg)
+
 
 ### Approach: Monitor for data drift
 1. our story starts where others end
