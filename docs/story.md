@@ -44,14 +44,18 @@ Choose depending on previous knowledge and your preferences:
 1. but: models degenerate: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-degrade
 1. intervention might be necessary: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/model-intervention
 
-#### Engineering Flow
+#### Phases of a Machine Learning Project
 
- ![Alt text](img/ml-phases-en.jpg)
+ ![Alt text](img/ml-phases-simple-en.jpg)
 
 
-#### The bigger picture
+#### Process after successful validation
 
- ![Alt text](flow-overview.jpg)
+ ![Alt text](img/mlops-process.jpg)
+
+#### Monitoring stack
+
+ ![Alt text](img/monitoring-stack.jpg)
 
 
 ### Approach: Monitor for data drift
@@ -69,7 +73,7 @@ Choose depending on previous knowledge and your preferences:
    * we will revisit this later, first we need some tooling to find out
 1. **demo** and **shared hands-on** Monitoring setup: 
    1. looking at the services one by one:
-      * birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
+      * technical birds eye view: https://djcordhose.github.io/mlops-drift/2023-odsc.html#/monitoring-stack
      1. Visualization of drift in Grafana
         * http://localhost:3000/d/U54hsxv7k/evidently-data-drift-dashboard?orgId=1&refresh=5s
      1. But: where does the drift data come from?
@@ -152,7 +156,7 @@ Choose depending on previous knowledge and your preferences:
    * fall back completely
      * manual
      * (rule based) baseline
-   * fall back for individual segments: ![Alt text](img/drift-distribution.jpg)
+   * fall back for individual segments
    * matching **code**: src/insurance_prediction/model/insurance.py
 
 
