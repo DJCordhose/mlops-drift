@@ -1,29 +1,5 @@
 # Story
 
-## Preparation
-1. make sure you have installed the project as described in https://github.com/DJCordhose/mlops-drift/blob/main/README.md#installation
-1. Introduce yourself to your neighbors and build teams of 2-4 people
-   * what do you do
-   * what do you know already
-   * what questions do you wish answered today? what topics addressed?  
-   * you can of course participate all by yourself, but it is highly recommended to form a team
-1. Start project as described in Readme: 
-   1. local: docker compose up
-   1. remote: https://gitpod.io/#https://github.com/DJCordhose/mlops-drift
-
-
-## How you can benefit
-There is a lot of material to be covered, so there will be limited time to try things completely one your own.
-
-There are different modes of participation, you will benefit from all of them. 
-Choose depending on previous knowledge and your preferences:
-1. No installation on your side necessary:
-   1. Do this in cinema mode
-   1. Ask questions at any time
-1. At least some parts should be running
-   1. Do what Olli does in sync
-   1. Fork at any point and make your own experiments, you are welcome to give a report of what you learned
-
 ## Part I
 
 **Working on the bigger picture**
